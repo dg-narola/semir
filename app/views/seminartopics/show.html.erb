@@ -1,0 +1,25 @@
+<center>
+<h1 style="color:blue;"><center>Seminartopic</center></h1>
+<p>
+  <strong>Title:</strong>
+  <%= @seminartopic.title %>
+</p>
+
+<p>
+  <strong>Descripton:</strong>
+  <%= @seminartopic.descripton %>
+</p>
+
+<p>
+  <strong>Studentname:</strong>
+  <%= @seminartopic.studname %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= User.find_by_id(@seminartopic.user_id).try(:username) %>
+</p>
+
+<%= link_to 'Edit', edit_seminartopic_path(@seminartopic), class: "btn btn-success" %> |
+<%= link_to 'Back', seminartopics_path, class: "btn btn-success" %>
+</center>

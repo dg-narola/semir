@@ -1,0 +1,31 @@
+<h1 style="color:blue;"><center>Seminartopics</center></h1>
+<br>
+
+<table class="table table-bordered table-stripped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Descripton</th>
+      <th>Username</th>
+      <th>Studentname</th>
+      <th colspan="3"><center>Actions</center></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seminartopics.each do |seminartopic| %>
+      <tr>
+        <td><%= seminartopic.title %></td>
+        <td><%= seminartopic.descripton %></td>
+        <td><%= User.find_by_id(seminartopic.user_id).try(:username) %></td>
+        <td><%= seminartopic.try(:studname) %></td>
+        <td><%= link_to 'Show', seminartopic, class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Edit', edit_seminartopic_path(seminartopic), class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Destroy', seminartopic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pull-right">
+  <%= link_to 'New Seminartopic', new_seminartopic_path, class: "btn btn-success" %>
+</div>

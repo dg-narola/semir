@@ -1,0 +1,2685 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20190315052811)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190315052811_devise_create_users.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20190315052811_devise_create_users.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20190315052811_devise_create_users.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190315052811"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-15 05:29:33.973716"], ["updated_at", "2019-03-15 05:29:33.973716"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSeminartopics (20190315053018)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190315053018_create_seminartopics.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "seminartopics" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "descripton" varchar, "studname" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_e921c12cc8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20190315053018_create_seminartopics.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_seminartopics_on_user_id" ON "seminartopics" ("user_id")[0m
+  ↳ db/migrate/20190315053018_create_seminartopics.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190315053018"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:06:38 +0530
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (4.3ms)
+Completed 200 OK in 45ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-03-15 11:06:46 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2019-03-15 11:08:13 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:08:32 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 62ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 11:08:32 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (106.7ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 11:08:36 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (13.4ms)
+  Rendered devise/shared/_navigation.html.erb (2.2ms)
+Completed 200 OK in 4770ms (Views: 4768.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendered devise/shared/_navigation.html.erb (1.6ms)
+Completed 200 OK in 8218ms (Views: 8166.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 11:08:44 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+  Rendered devise/shared/_navigation.html.erb (1.2ms)
+Completed 200 OK in 110ms (Views: 109.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-03-15 11:08:46 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_new_html_erb__1735677229861420642_70220098469940 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/new.html.erb:4)
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.6ms)
+  Rendered devise/shared/_navigation.html.erb (1.4ms)
+Completed 200 OK in 109ms (Views: 108.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-03-15 11:09:08 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_new_html_erb__1735677229861420642_70220097463020 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/new.html.erb:4)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.6ms)
+  Rendered devise/shared/_navigation.html.erb (0.8ms)
+Completed 200 OK in 82ms (Views: 81.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-03-15 11:09:19 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+GVCOq8pZtC70bH1LwftqW8+QqVYnFAmiKPlTTMACL9ggRB4tN2tZ2ddsJ+xLA38+1J7nRlOtdDFOKfczfueyQ==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dg@narola.email"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "dharani"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "dharani"], ["email", "dg@narola.email"], ["encrypted_password", "$2a$11$0oKpvmb4ja9s.0XbethsD.KcytQ5kwyyg6vA4435zdY1E4j94D0he"], ["created_at", "2019-03-15 05:39:19.857821"], ["updated_at", "2019-03-15 05:39:19.857821"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 266ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:09:19 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.4ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  Rendered seminartopics/index.html.erb within layouts/application (2.3ms)
+  Rendered devise/shared/_navigation.html.erb (0.8ms)
+Completed 200 OK in 172ms (Views: 81.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:09:22 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  Rendered seminartopics/index.html.erb within layouts/application (1.6ms)
+  Rendered devise/shared/_navigation.html.erb (1.2ms)
+Completed 200 OK in 77ms (Views: 71.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-15 11:09:24 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (12.6ms)
+  Rendered seminartopics/new.html.erb within layouts/application (19.7ms)
+  Rendered devise/shared/_navigation.html.erb (1.2ms)
+Completed 200 OK in 91ms (Views: 75.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/seminartopics" for 127.0.0.1 at 2019-03-15 11:09:31 +0530
+Processing by SeminartopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JfZiNXIKcnMUL5hRAdtNttBaAf9ks4NRkF2+v4rRVHpR6Dpn7AjguUhLZLB3pOjJ1Ou046gB/Bpu6ZHTIU/iag==", "seminartopic"=>{"title"=>"Car Parking System", "descripton"=>"Automation System for car parking", "studname"=>"Mitesh", "user_id"=>"1"}, "commit"=>"Create Seminartopic"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mSeminartopic Create (16.2ms)[0m  [1m[32mINSERT INTO "seminartopics" ("title", "descripton", "studname", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Car Parking System"], ["descripton", "Automation System for car parking"], ["studname", "Mitesh"], ["user_id", 1], ["created_at", "2019-03-15 05:39:31.844739"], ["updated_at", "2019-03-15 05:39:31.844739"]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+Redirected to http://localhost:3000/seminartopics/1
+Completed 302 Found in 96ms (ActiveRecord: 18.4ms)
+
+
+Started GET "/seminartopics/1" for 127.0.0.1 at 2019-03-15 11:09:31 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (2.1ms)
+  Rendered devise/shared/_navigation.html.erb (0.8ms)
+Completed 200 OK in 115ms (Views: 78.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/seminartopics/1" for 127.0.0.1 at 2019-03-15 11:09:34 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.1ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (1.9ms)
+  Rendered devise/shared/_navigation.html.erb (1.0ms)
+Completed 200 OK in 67ms (Views: 62.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-15 11:09:35 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (2.3ms)
+  Rendered devise/shared/_navigation.html.erb (0.7ms)
+Completed 200 OK in 82ms (Views: 75.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:14:29 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.8ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (18.9ms)
+  Rendered devise/shared/_navigation.html.erb (0.9ms)
+Completed 200 OK in 587ms (Views: 524.3ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-03-15 11:14:33 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WvNJ30jfwQBDoyR0I0EuCHr/IYICrpbj9FZeHi13jV/CFxudUysKt58vJR69as5d7pMYukN8cxW5zRyP04wbKQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:14:33 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 11:14:33 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (23.3ms)
+  Rendered devise/shared/_navigation.html.erb (1.6ms)
+Completed 200 OK in 102ms (Views: 100.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-03-15 11:14:35 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_new_html_erb__1044791221628414834_70227737406900 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/new.html.erb:4)
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (21.4ms)
+  Rendered devise/shared/_navigation.html.erb (1.4ms)
+Completed 200 OK in 112ms (Views: 110.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-03-15 11:14:46 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xtpdAT3/L8IZN/mmDQzyXksjIXBI0UhQ2YtZ0ASlLv5MFKw/3yTByLqfcOxNm1LZjT7EihS0fhW4j8eMZ3ck3w==", "user"=>{"email"=>"dj@gmail.com", "username"=>"Dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dj@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "Dharani"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_new_html_erb__1044791221628414834_70227721534520 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/new.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (17.2ms)
+  Rendered devise/shared/_navigation.html.erb (1.4ms)
+Completed 200 OK in 276ms (Views: 86.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-03-15 11:14:59 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mNUaDhl0lO6PatfmeQD4sI2ign+OTnb+PWpzw3DWy804oevuluzqS5HYTXD2qR7Vo2StD1lYJoLNEtL0OjaENw==", "user"=>{"email"=>"dj@gmail.com", "username"=>"dhanno", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dj@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "dhanno"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "dhanno"], ["email", "dj@gmail.com"], ["encrypted_password", "$2a$11$N/NlZqX9PBF4ufWWCFnJteCFpILMyAgXnWNVMJ1LXSEbueaNSTDCu"], ["created_at", "2019-03-15 05:44:59.521927"], ["updated_at", "2019-03-15 05:44:59.521927"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 153ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:14:59 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (2.8ms)
+  Rendered devise/shared/_navigation.html.erb (1.1ms)
+Completed 200 OK in 81ms (Views: 76.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 11:15:56 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.5ms)
+  Rendered devise/shared/_navigation.html.erb (1.7ms)
+Completed 200 OK in 96ms (Views: 91.4ms | ActiveRecord: 0.6ms)
+
+
+DEPRECATION WARNING: The factory_girl gem is deprecated. Please upgrade to factory_bot. See https://github.com/thoughtbot/factory_bot/blob/v4.9.0/UPGRADE_FROM_FACTORY_GIRL.md for further instructions. (called from <main> at /Users/c100-74/Documents/training/seminar/bin/rails:9)
+DEPRECATION WARNING: The factory_girl gem is deprecated. Please upgrade to factory_bot. See https://github.com/thoughtbot/factory_bot/blob/v4.9.0/UPGRADE_FROM_FACTORY_GIRL.md for further instructions. (called from <main> at /Users/c100-74/Documents/training/seminar/bin/rails:9)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "seminartopics"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "seminartopics" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "descripton" varchar, "studname" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_seminartopics_on_user_id" ON "seminartopics" ("user_id")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar DEFAULT '' NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:25
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190315053018)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190315052811);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-15 07:00:16.384647"], ["updated_at", "2019-03-15 07:00:16.384647"]]
+  ↳ db/schema.rb:13
+  [1m[35m (15.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-03-15 07:00:16.410160"], ["key", "environment"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2019-03-15 12:57:42 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (16.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (13.0ms)
+  Rendered devise/shared/_navigation.html.erb (0.9ms)
+Completed 200 OK in 1145ms (Views: 1005.3ms | ActiveRecord: 19.1ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-03-15 12:57:46 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SIAKiamiC509hUyRu8RDPGTx0lCyx+ZPeWwDEPzvjNHo9PtpJjp1OCM31gc0baVZSjf9IGXRtjOJFKIntg/DKw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 12:57:46 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 12:57:46 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.7ms)
+  Rendered devise/shared/_navigation.html.erb (1.5ms)
+Completed 200 OK in 127ms (Views: 124.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-15 12:57:51 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LedmuA8iKDdJIzMGFpTYC5xozCuO0dFlK+ui62TKNHorG6JvNQCMJd4pWtCKzZk+rckNCJIj2vrReDTkZHuJTA==", "user"=>{"login"=>"dharani", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dharani' OR lower(email) = 'dharani') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 170ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 12:57:51 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (2.9ms)
+  Rendered devise/shared/_navigation.html.erb (0.8ms)
+Completed 200 OK in 88ms (Views: 84.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 12:57:53 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (2.5ms)
+  Rendered devise/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 81ms (Views: 76.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 15:52:46 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (21.0ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (25.6ms)
+  Rendered devise/shared/_navigation.html.erb (1.7ms)
+Completed 200 OK in 411ms (Views: 361.1ms | ActiveRecord: 29.8ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-03-15 15:52:51 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Mv+7XW7bOm8GHo3Yy/PI285MHS7NocVKInOwfjilSRQwbqFCkLIQk9LGOzJ5e65AQlKySru6GrSf8eOC52qFxg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 15:52:51 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 15:52:51 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.2ms)
+  Rendered devise/shared/_navigation.html.erb (1.4ms)
+Completed 200 OK in 105ms (Views: 104.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-03-15 15:52:53 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_new_html_erb__2703191734663534036_70143038570400 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/new.html.erb:4)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.8ms)
+  Rendered devise/shared/_navigation.html.erb (1.0ms)
+Completed 200 OK in 78ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-03-15 16:14:52 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWVGgV717BlOCBrirRwjS+H5n6t86QfWfR2XUChvEvsC3KaRSHD+0mNB9mfrmZkDrFfCNhkSSKanJw8jjt1h/g==", "user"=>{"email"=>"asmita@gmail.com", "username"=>"asmita", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (9.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asmita@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "asmita"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_new_html_erb__2703191734663534036_70143031150060 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/new.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (15.5ms)
+  Rendered devise/shared/_navigation.html.erb (0.9ms)
+Completed 200 OK in 274ms (Views: 113.8ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-03-15 16:15:01 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0EmWyt41ftMHQVWFxvUwUmB8p2oiUYhqPUpOatBFcaagHfFawav0AzRK0lZWW54SBWd0TW58OcA1JqCZsCkIOw==", "user"=>{"email"=>"asmita@gmail.com", "username"=>"asmita", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "asmita@gmail.com"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "asmita"], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "asmita"], ["email", "asmita@gmail.com"], ["encrypted_password", "$2a$11$tNuk7EAMCXZv0GRKAO1BoOMEzYQz9J./MI4YbfFZVyo9ABseTR0kG"], ["created_at", "2019-03-15 10:45:01.242891"], ["updated_at", "2019-03-15 10:45:01.242891"]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 156ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 16:15:01 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (6.7ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (13.5ms)
+  Rendered devise/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 86ms (Views: 73.5ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 16:15:05 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.0ms)
+  Rendered devise/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 74ms (Views: 68.6ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-03-15 16:15:44 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uHjFxjqmeaMOto6pXbyXTx++mRuy2IdSRIitcXXKtTTILKJWJTjzcz29CXrNEjkPeqVKPP71NvhM5EOCFabMqQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 16:15:44 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 16:15:44 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.2ms)
+  Rendered devise/shared/_navigation.html.erb (1.9ms)
+Completed 200 OK in 83ms (Views: 81.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 16:51:26 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 16:51:26 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.8ms)
+  Rendered devise/shared/_navigation.html.erb (1.4ms)
+Completed 200 OK in 145ms (Views: 143.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-15 16:51:34 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1m9OtVYdINCdsRluEtp8zX4fm6Hz2OlcgOhAsz9Yi3t2LpMLksHvf/DBfuO6hRwJkEI9o6IS3sOeBKFVh871qw==", "user"=>{"login"=>"dharani", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (11.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dharani' OR lower(email) = 'dharani') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 163ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 16:51:34 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (8.6ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (11.7ms)
+  Rendered devise/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 82ms (Views: 67.5ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 16:51:38 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143048871240 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.2ms)
+  Rendered devise/shared/_navigation.html.erb (1.1ms)
+Completed 200 OK in 67ms (Views: 64.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 17:34:18 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143030727180 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (27.7ms)
+  Rendered devise/shared/_navigation.html.erb (0.8ms)
+Completed 200 OK in 95ms (Views: 91.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 17:34:22 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143030491040 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.4ms)
+  Rendered devise/shared/_navigation.html.erb (0.8ms)
+Completed 200 OK in 89ms (Views: 84.0ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2019-03-15 17:34:27 +0530
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8NuTXgZtHp082Vpe7k+RC3qZflNtZAsYepJYNCi7XGa5fDClvDmrWK/KiN0qZ7CeKSprbytFeo84Kzv6D8D91A==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "dharani"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143037560320 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (7.8ms)
+  Rendered devise/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 246ms (Views: 90.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 17:41:15 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143039473520 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (Missing partial devise/registrations/_navigation, devise/_navigation, application/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/c100-74/Documents/training/seminar/app/views"
+  * "/Users/c100-74/.rvm/gems/ruby-2.5.1/gems/devise-4.6.1/app/views"
+):
+     7:   <%= csrf_meta_tags %>
+     8: </head>
+     9: <body>
+    10:   <%= render "navigation" %>
+    11:   <span id="notice"><%= notice %></span>
+    12:   <span id="notice"><%= alert %></span>
+    13:   <div class="container-fluid">
+  
+app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___2871281684253591385_70143039446780'
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 17:41:29 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143049373900 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial devise/registrations/_navigation, devise/_navigation, application/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/c100-74/Documents/training/seminar/app/views"
+  * "/Users/c100-74/.rvm/gems/ruby-2.5.1/gems/devise-4.6.1/app/views"
+):
+     7:   <%= csrf_meta_tags %>
+     8: </head>
+     9: <body>
+    10:   <%= render "navigation" %>
+    11:   <span id="notice"><%= notice %></span>
+    12:   <span id="notice"><%= alert %></span>
+    13:   <div class="container-fluid">
+  
+app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___2871281684253591385_70143049354900'
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 17:42:11 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143031103520 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 76ms (Views: 74.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 17:42:17 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143030629020 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 86ms (Views: 83.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 18:22:25 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143007446020 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 101ms (Views: 98.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 18:22:27 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143039691300 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 76ms (Views: 72.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 18:22:30 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143049005540 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 85ms (Views: 83.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 18:22:33 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143009372680 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 78ms (Views: 74.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-03-15 18:22:35 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"U0dXK9ngP3x0s+BkSAPh4i3zO/tw66U267dCkuy9dT9H9EqOeNcRI83bFwqfcu57yfE0SS2bU2onyxNBDkBPOg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 18:22:35 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-15 18:22:35 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 86ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-15 18:22:43 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hRnGElXMBBAxS0zu5jnJ3gplccAzmRLhwI9t1WVvVydRDusn08FDwbEj2YV6ivVpUt6LUdD1o6pwwlz/p7q7eQ==", "user"=>{"login"=>"dharani", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dharani' OR lower(email) = 'dharani') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 153ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-15 18:22:43 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 88ms (Views: 82.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-15 18:22:47 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (15.6ms)
+  Rendered seminartopics/new.html.erb within layouts/application (18.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 87.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-15 18:22:55 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 73ms (Views: 68.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-15 18:22:57 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__4382594258622614053_70143039312540 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 76ms (Views: 71.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-15 18:23:00 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 75ms (Views: 67.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-16 14:35:19 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-16 14:35:19 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 590ms (Views: 568.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-16 14:35:43 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ffnlTEAS5X8N9+yK92IT6MxcK0R+idApb2rIfv/DgdAZl3F/ZKviXSWnJzRxMbegecMj59FZJ2z4YYScZKMwEQ==", "user"=>{"login"=>"dg@narola.email", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dg@narola.email' OR lower(email) = 'dg@narola.email') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 182ms (ActiveRecord: 11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-16 14:35:43 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.4ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 106ms (Views: 81.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-16 14:35:52 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (11.9ms)
+  Rendered seminartopics/new.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 78ms (Views: 74.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/seminartopics" for 127.0.0.1 at 2019-03-16 14:36:02 +0530
+Processing by SeminartopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cr9ReEaVRvPoQBKDp6zfY2vCsQwQRib1bG0dgnT4jRjwWfojTb+ykKvVruqTuxLIjHyuXFRg0fdF9P2Bm+K1zA==", "seminartopic"=>{"title"=>"sduudhsjdsj", "descripton"=>"ijsdijisdjxs", "studname"=>"dharani", "user_id"=>"1"}, "commit"=>"Create Seminartopic"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mSeminartopic Create (34.5ms)[0m  [1m[32mINSERT INTO "seminartopics" ("title", "descripton", "studname", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "sduudhsjdsj"], ["descripton", "ijsdijisdjxs"], ["studname", "dharani"], ["user_id", 1], ["created_at", "2019-03-16 09:06:02.777338"], ["updated_at", "2019-03-16 09:06:02.777338"]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+Redirected to http://localhost:3000/seminartopics/2
+Completed 302 Found in 50ms (ActiveRecord: 36.8ms)
+
+
+Started GET "/seminartopics/2" for 127.0.0.1 at 2019-03-16 14:36:02 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.1ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 102ms (Views: 66.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-16 14:36:06 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 68ms (Views: 59.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-18 14:56:22 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-18 14:56:22 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 738ms (Views: 716.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-18 14:56:30 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YFIBNxnKGd4sNIYg+LnN0z+EeFybtyyLLrA1HjwwZD27h1NbPMO7EUZNTpThXLO3lHAEu3CQqVaJmrwKsgpB2g==", "user"=>{"login"=>"dharani", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dharani' OR lower(email) = 'dharani') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 182ms (ActiveRecord: 25.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-18 14:56:30 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (10.8ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (24.8ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 97ms (Views: 78.7ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-18 14:56:33 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 78ms (Views: 63.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 14:56:53 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 14:56:53 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (50.7ms)
+  Rendered seminartopics/_form.html.erb (23.1ms)
+  Rendered seminartopics/new.html.erb within layouts/application (56.2ms)
+  Rendered seminartopics/new.html.erb within layouts/application (26.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 149ms (Views: 141.2ms | ActiveRecord: 0.7ms)
+
+
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 197ms (Views: 185.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 15:01:51 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (3.1ms)
+  Rendered seminartopics/new.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 86ms (Views: 75.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 15:04:10 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (4.2ms)
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 15:04:10 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 141ms (Views: 137.2ms | ActiveRecord: 0.7ms)
+
+
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 135ms (Views: 126.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 15:38:12 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (15.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.4ms)
+  Rendered seminartopics/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 158ms (Views: 138.2ms | ActiveRecord: 15.5ms)
+
+
+Started POST "/seminartopics" for 127.0.0.1 at 2019-03-18 15:38:17 +0530
+Processing by SeminartopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k6OG4PB1ZE1om/rvAT/Sr8f/Gjkado1YEs9cLNNaqdETJ8W6Zrljs2Ec6hfChBbn0bPRyH39aIzmdE307stD1w==", "seminartopic"=>{"title"=>"dxfdsfds", "descripton"=>"fdsfdsf", "studname"=>"dsfdsf", "user_id"=>"1"}, "commit"=>"Create Seminartopic"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mSeminartopic Create (23.2ms)[0m  [1m[32mINSERT INTO "seminartopics" ("title", "descripton", "studname", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "dxfdsfds"], ["descripton", "fdsfdsf"], ["studname", "dsfdsf"], ["user_id", 1], ["created_at", "2019-03-18 10:08:17.212427"], ["updated_at", "2019-03-18 10:08:17.212427"]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+Redirected to http://localhost:3000/seminartopics/3
+Completed 302 Found in 58ms (ActiveRecord: 25.3ms)
+
+
+Started GET "/seminartopics/3" for 127.0.0.1 at 2019-03-18 15:38:17 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 78ms (Views: 72.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/seminartopics/3/edit" for 127.0.0.1 at 2019-03-18 15:43:46 +0530
+Processing by SeminartopicsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.1ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/edit.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.4ms)
+  Rendered seminartopics/edit.html.erb within layouts/application (12.4ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 159ms (Views: 145.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/seminartopics/3/edit" for 127.0.0.1 at 2019-03-18 15:49:21 +0530
+Processing by SeminartopicsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.1ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/edit.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.4ms)
+  Rendered seminartopics/edit.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 142ms (Views: 128.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 15:49:43 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 132ms (Views: 86.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/seminartopics/1/edit" for 127.0.0.1 at 2019-03-18 15:49:59 +0530
+Processing by SeminartopicsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/edit.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.2ms)
+  Rendered seminartopics/edit.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 117ms (Views: 76.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 15:50:02 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 94ms (Views: 87.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 15:55:16 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.7ms)
+  Rendered seminartopics/new.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 92ms (Views: 88.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/seminartopics" for 127.0.0.1 at 2019-03-18 15:55:17 +0530
+Processing by SeminartopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5W45ooPM5ykiY1HRHrxi56P7GsKoHEQ7CkadAu+rU6Vl6nr4FQDg1yvkQSndB6avtbfRM8+Xoe/+/Yza0jq5ow==", "seminartopic"=>{"title"=>"", "descripton"=>"", "studname"=>"", "user_id"=>"1"}, "commit"=>"Create Seminartopic"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (6.3ms)
+  Rendered seminartopics/new.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 115ms (Views: 105.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 15:55:19 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 97ms (Views: 90.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 15:55:22 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.6ms)
+  Rendered seminartopics/new.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 78ms (Views: 70.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/seminartopics" for 127.0.0.1 at 2019-03-18 15:55:26 +0530
+Processing by SeminartopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hRXUXxamAOla103aMace4wQAu6HrOZFp26l/j1p0zWMFkZcFgGoHF1NQXSLyHNqrEkxwUIyydL0vEm5XZ+UnZQ==", "seminartopic"=>{"title"=>"uytu", "descripton"=>"ytuytu", "studname"=>"ytuytu", "user_id"=>"1"}, "commit"=>"Create Seminartopic"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mSeminartopic Create (0.5ms)[0m  [1m[32mINSERT INTO "seminartopics" ("title", "descripton", "studname", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "uytu"], ["descripton", "ytuytu"], ["studname", "ytuytu"], ["user_id", 1], ["created_at", "2019-03-18 10:25:26.750759"], ["updated_at", "2019-03-18 10:25:26.750759"]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[35m (46.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+Redirected to http://localhost:3000/seminartopics/4
+Completed 302 Found in 55ms (ActiveRecord: 47.9ms)
+
+
+Started GET "/seminartopics/4" for 127.0.0.1 at 2019-03-18 15:55:26 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.1ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 82ms (Views: 76.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 16:14:56 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (7.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 148ms (Views: 126.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/seminartopics/1" for 127.0.0.1 at 2019-03-18 16:14:58 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 65ms (Views: 60.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 16:15:40 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 71ms (Views: 66.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-18 16:18:55 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.2ms)
+  Rendered seminartopics/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 69ms (Views: 64.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/seminartopics" for 127.0.0.1 at 2019-03-18 16:18:59 +0530
+Processing by SeminartopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WyixE8u0uugVrK1iR3HuuAT6P0Hk717vtC3F4Oh8mVTbrPJJXXi9FhwrvZqEyirwErb0sINkuztAltQ41e1zUg==", "seminartopic"=>{"title"=>"trtrytr", "descripton"=>"tryrty", "studname"=>"rtyrty", "user_id"=>"1"}, "commit"=>"Create Seminartopic"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[36mSeminartopic Create (61.4ms)[0m  [1m[32mINSERT INTO "seminartopics" ("title", "descripton", "studname", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "trtrytr"], ["descripton", "tryrty"], ["studname", "rtyrty"], ["user_id", 1], ["created_at", "2019-03-18 10:48:59.847397"], ["updated_at", "2019-03-18 10:48:59.847397"]]
+  ↳ app/controllers/seminartopics_controller.rb:31
+  [1m[35m (27.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:31
+Redirected to http://localhost:3000/seminartopics/5
+Completed 302 Found in 101ms (ActiveRecord: 89.4ms)
+
+
+Started GET "/seminartopics/5" for 127.0.0.1 at 2019-03-18 16:19:00 +0530
+Processing by SeminartopicsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.1ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  Rendering seminartopics/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/show.html.erb:20
+  Rendered seminartopics/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 78ms (Views: 73.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 16:19:04 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 82ms (Views: 74.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/seminartopics/5" for 127.0.0.1 at 2019-03-18 16:34:01 +0530
+Processing by SeminartopicsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GISc1NOt4nhxdD+I19qJ7WcJdqMIcxg6UuZQsUeth1jUWzYUf81HyxGaxvIWb4GNPLG2fowShKmsNyc+TvhC7A==", "id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (6.4ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:58
+  [1m[36mSeminartopic Destroy (0.6ms)[0m  [1m[31mDELETE FROM "seminartopics" WHERE "seminartopics"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/seminartopics_controller.rb:58
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:58
+Redirected to http://localhost:3000/seminartopics
+Completed 302 Found in 15ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 16:34:01 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.5ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 122ms (Views: 116.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 17:58:01 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (6.9ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 156ms (Views: 135.7ms | ActiveRecord: 8.2ms)
+
+
+Started DELETE "/seminartopics/4" for 127.0.0.1 at 2019-03-18 17:58:06 +0530
+Processing by SeminartopicsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PV1PDOd1mZTT81CXrqsvyrji//PZOd7QnHAq6nOdhwrxguXMSxU8J7Mdqe1vHieq41o/Ll1YQkNioV1leshCvg==", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT  "seminartopics".* FROM "seminartopics" WHERE "seminartopics"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/seminartopics_controller.rb:68
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:58
+  [1m[36mSeminartopic Destroy (4.3ms)[0m  [1m[31mDELETE FROM "seminartopics" WHERE "seminartopics"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/seminartopics_controller.rb:58
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seminartopics_controller.rb:58
+Redirected to http://localhost:3000/seminartopics
+Completed 302 Found in 11ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 17:58:06 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 67ms (Views: 62.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-18 17:58:08 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 78ms (Views: 74.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-19 14:24:45 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-19 14:24:45 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+Completed 200 OK in 499ms (Views: 478.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-19 14:26:13 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3upgSfSmP8KsS1XfdTLa7tQ2W0HesWcRNLYu+sYfxTfyguCc5Hhcg0yXiZCTaSTSkhcJiQKuU9+gyVcmqyUZJA==", "user"=>{"login"=>"dharani", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (11.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dharani' OR lower(email) = 'dharani') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 168ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-19 14:26:13 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (9.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (21.6ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 115ms (Views: 96.9ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:26:17 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179368861360 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 74ms (Views: 71.5ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2019-03-19 14:35:32 +0530
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GmBQiVjX5jA6pKj9VlyyBIRopsyhkmeLctUV1xNof6Gw2aOMJmgFbJ3hD3bgKUJgekaL9LSAnOOHFXYsv4hrxQ==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "dharani"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179363068220 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 331ms (Views: 178.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:35:35 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179309660180 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 165ms (Views: 161.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:36:40 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:36:46 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:38:10 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-03-19 14:38:14 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (13.5ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (18.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 178ms (Views: 145.7ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:38:20 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179364745020 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 67ms (Views: 64.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-19 14:38:27 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 164ms (Views: 155.9ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2019-03-19 14:38:34 +0530
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3hXj8GpBtSjU/lIdKXxEVPvMiseOG++eRbRrVsDy7Vp0rBD1FP5WdHO79ZafCbQwBeKn/5sJFPawdAitbBL5Pg==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "dharani"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179349680160 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (16.9ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 239ms (Views: 86.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:38:37 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179348074160 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 92ms (Views: 90.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:39:05 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-03-19 14:39:10 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 82ms (Views: 76.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-19 14:39:17 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (44.2ms)
+  Rendered seminartopics/new.html.erb within layouts/application (51.7ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 132ms (Views: 115.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:39:23 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 77ms (Views: 72.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:39:29 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179364531080 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 76ms (Views: 73.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:39:38 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 111ms (Views: 103.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:39:40 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179348928680 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 120ms (Views: 116.7ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2019-03-19 14:39:42 +0530
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ns6+MEVB0UBD+N+1uH/Bjigayg19kpWapZdnnQTg3Qecd001O/4yHOS9eD4OCjHq1jTnNWiAbvJQVwRmqADJYw==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "dharani"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179364860240 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+Completed 200 OK in 234ms (Views: 78.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:40:14 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179313261580 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 77ms (Views: 72.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:40:20 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:40:30 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:40:49 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 122ms (Views: 110.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:40:51 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+Completed 200 OK in 93ms (Views: 88.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:40:53 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179367258580 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 84ms (Views: 80.3ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2019-03-19 14:41:01 +0530
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RkYQjCShPZW8KDtXvOQzpy+EArUdZjxxNh9rxtve51Ts/+OJWh7eyRttnNwKkcPD0aovjQh0xxnD3wg9dz7zMA==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "dharani"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179343386100 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 238ms (Views: 84.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:41:04 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179313798120 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+Completed 200 OK in 92ms (Views: 87.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:41:06 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2019-03-19 14:41:25 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:42:41 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179344666560 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 119ms (Views: 115.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit?class=btn+btn-success" for 127.0.0.1 at 2019-03-19 14:42:44 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  Parameters: {"class"=>"btn btn-success"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179368874080 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+Completed 200 OK in 141ms (Views: 136.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit?class=btn+btn-success" for 127.0.0.1 at 2019-03-19 14:42:47 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  Parameters: {"class"=>"btn btn-success"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179311739740 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 109ms (Views: 106.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit?class=btn+btn-success" for 127.0.0.1 at 2019-03-19 14:43:19 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  Parameters: {"class"=>"btn btn-success"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179345813780 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 200 OK in 124ms (Views: 121.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:43:23 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179364973380 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 118ms (Views: 113.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:43:25 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 109ms (Views: 101.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:43:28 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+Completed 200 OK in 74ms (Views: 68.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2019-03-19 14:43:30 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179309549280 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/registrations/edit.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 92ms (Views: 88.2ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2019-03-19 14:43:32 +0530
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ay8RrU99XnqFeTPy4UdrJVggLJTxQOmFcZFg99ER0NTBluKoMcK9JiI8lHlXMptBpg4BrORSEu2EUQMMffHEsA==", "user"=>{"email"=>"dg@narola.email", "username"=>"dharani", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["username", "dharani"], ["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper.devise_error_messages!`
+is deprecated and it will be removed in the next major version.
+To customize the errors styles please run `rails g devise:views` and modify the
+`devise/shared/error_messages` partial.
+ (called from block in _app_views_devise_registrations_edit_html_erb__2738281100967523925_70179364514080 at /Users/c100-74/Documents/training/seminar/app/views/devise/registrations/edit.html.erb:4)
+  Rendered devise/shared/_error_messages.html.erb (1.7ms)
+  Rendered devise/registrations/edit.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 239ms (Views: 79.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-19 14:43:33 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.4ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+Completed 200 OK in 97ms (Views: 88.3ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-03-19 14:58:45 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OdnD0c8bV6EhdzstcUrLd2xRNrGyYvE9IUX7ePbSl84E29NmEFTT+peMUhMZb+fo+BixZ5luZbFratXYm5l8tQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 71ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-19 14:58:45 +0530
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-19 14:58:45 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 165ms (Views: 164.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-03-20 12:38:47 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SeminartopicsController#index as HTML
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-03-20 12:38:47 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (30.1ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+Completed 200 OK in 448ms (Views: 429.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-03-20 12:38:57 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9qm5L1TvW1vnrXCyVF8YFsK9tuMBztAfAxEf5p3r5uQjIRiD5YKzEwLAb8/r6lmZ3CFqNaIFYuVjgPr1GG6KwQ==", "user"=>{"login"=>"dharani", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (lower(username) = 'dharani' OR lower(email) = 'dharani') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+Redirected to http://localhost:3000/
+Completed 302 Found in 188ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-20 12:38:58 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+Completed 200 OK in 99ms (Views: 89.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-20 12:39:00 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.3ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+Completed 200 OK in 83ms (Views: 78.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/seminartopics/new" for 127.0.0.1 at 2019-03-20 12:39:08 +0530
+Processing by SeminartopicsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/new.html.erb within layouts/application
+  Rendered seminartopics/_form.html.erb (2.6ms)
+  Rendered seminartopics/new.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+Completed 200 OK in 74ms (Views: 70.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/seminartopics" for 127.0.0.1 at 2019-03-20 12:39:12 +0530
+Processing by SeminartopicsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/c100-74/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering seminartopics/index.html.erb within layouts/application
+  [1m[36mSeminartopic Load (0.2ms)[0m  [1m[34mSELECT "seminartopics".* FROM "seminartopics"[0m
+  ↳ app/views/seminartopics/index.html.erb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/seminartopics/index.html.erb:20
+  Rendered seminartopics/index.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 68ms (Views: 62.1ms | ActiveRecord: 0.6ms)
+
+

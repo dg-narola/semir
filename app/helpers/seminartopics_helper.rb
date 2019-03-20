@@ -1,0 +1,2 @@
+module SeminartopicsHelper
+end
