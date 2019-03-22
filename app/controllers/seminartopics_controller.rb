@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# seminartopics controller
 class SeminartopicsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_seminartopic, only: [:show, :edit, :update, :destroy]
+  before_action :set_seminartopic, only: %i[show edit update destroy]
 
   # GET /seminartopics
   # GET /seminartopics.json
@@ -10,8 +13,7 @@ class SeminartopicsController < ApplicationController
 
   # GET /seminartopics/1
   # GET /seminartopics/1.json
-  def show
-  end
+  def show; end
 
   # GET /seminartopics/new
   def new
@@ -19,21 +21,24 @@ class SeminartopicsController < ApplicationController
   end
 
   # GET /seminartopics/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /seminartopics
   # POST /seminartopics.json
   def create
     @seminartopic = Seminartopic.new(seminartopic_params)
-
     respond_to do |format|
       if @seminartopic.save
-        format.html { redirect_to @seminartopic, notice: 'Seminartopic was successfully created.' }
+        format.html do
+          redirect_to @seminartopic,
+                      notice: 'Seminartopic was successfully created.'
+        end
         format.json { render :show, status: :created, location: @seminartopic }
       else
         format.html { render :new }
-        format.json { render json: @seminartopic.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @seminartopic.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -43,11 +48,16 @@ class SeminartopicsController < ApplicationController
   def update
     respond_to do |format|
       if @seminartopic.update(seminartopic_params)
-        format.html { redirect_to @seminartopic, notice: 'Seminartopic was successfully updated.' }
+        format.html do
+          redirect_to @seminartopic,
+                      notice: 'Seminartopic was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @seminartopic }
       else
         format.html { render :edit }
-        format.json { render json: @seminartopic.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @seminartopic.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -57,19 +67,25 @@ class SeminartopicsController < ApplicationController
   def destroy
     @seminartopic.destroy
     respond_to do |format|
-      format.html { redirect_to seminartopics_url, notice: 'Seminartopic was successfully destroyed.' }
+      format.html do
+        redirect_to seminartopics_url,
+                    notice: 'Seminartopic was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_seminartopic
-      @seminartopic = Seminartopic.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def seminartopic_params
-      params.require(:seminartopic).permit(:title, :descripton, :studname, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_seminartopic
+    @seminartopic = Seminartopic.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
+  def seminartopic_params
+    params.require(:seminartopic).permit(:title, :descripton, :studname,
+                                         :user_id)
+  end
 end

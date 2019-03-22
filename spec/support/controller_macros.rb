@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ControllerMacros
   extend ActiveSupport::Concern
 
@@ -5,7 +7,7 @@ module ControllerMacros
     def login_verified_user
       login_user(:verified)
     end
-    alias_method :login_user, :login_verified_user
+    alias login_user login_verified_user
 
     def login_unverified_teacher
       login_user(:unverified)
@@ -19,6 +21,7 @@ module ControllerMacros
     end
 
     private
+
     def login_user(user_trait)
       before do
         request.env['devise.mapping'] = Devise.mappings[:user]
@@ -26,7 +29,6 @@ module ControllerMacros
         sign_in @current_user
       end
     end
-
   end
 end
 

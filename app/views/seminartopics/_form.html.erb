@@ -1,7 +1,8 @@
 <%= form_with(model: seminartopic, local: true) do |form| %>
   <% if seminartopic.errors.any? %>
     <div id="error_explanation" class="form-group">
-      <h2><%= pluralize(seminartopic.errors.count, "error") %> prohibited this seminartopic from being saved:</h2>
+      <h2><%= pluralize(seminartopic.errors.count, "error") %>
+         prohibited this seminartopic from being saved:</h2>
 
       <ul>
       <% seminartopic.errors.full_messages.each do |message| %>

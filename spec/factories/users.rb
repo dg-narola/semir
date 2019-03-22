@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :user do
     sequence(:email) do |n|
       "example#{n}@example.com"
     end
-    password "password"
-    password_confirmation "password"
-    username "dharani"
+    password 'password'
+    password_confirmation 'password'
+    username 'dharani'
     # confirmed_at Time.zone.now
     # current_sign_in_at Time.zone.now
   end
@@ -13,7 +15,7 @@ FactoryGirl.define do
   # trait :confirmed do
   #   confirmed_at Time.zone.now
   #   current_sign_in_at Time.zone.now
-   #end
+  # end
 
   # trait :verified do
   # end

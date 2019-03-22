@@ -8,7 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'ca346df0ed44e6d682a4a1afb15cde35553be2b009777c2a497fe625061f8a636ed373728ead52af9952d21797f710db80ed6a495c5855943a805e7b7f5f028a'
+  # config.secret_key = 'ca346df0ed44e6d682a4a1afb15cde35553be2b009777c2a497fe6
+  # 25061f8a636ed373728ead52af9952d21797f710db80ed6a495c5855943a805e7b7f5f028a'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,7 +19,8 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  # config.mailer_sender =
+  # 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -37,16 +39,18 @@ Devise.setup do |config|
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
-  # session. If you need permissions, you should implement that in a before filter.
+  # session. If you need permissions, you should implement that in a before
+  # filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
 
-  # Configure parameters from the request object used for authentication. Each entry
-  # given should be a request method and it will automatically be passed to the
-  # find_for_authentication method and considered in your model lookup. For instance,
-  # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
-  # The same considerations mentioned for authentication_keys also apply to request_keys.
+  # Configure parameters from the request object used for authentication. Each
+  # entrygiven should be a request method and it will automatically be passed to
+  # the find_for_authentication method and considered in your model lookup. For
+  # instance,if you set :request_keys to [:subdomain], :subdomain will be used
+  #  on authentication.The same considerations mentioned for authentication_keys
+  # also apply to request_keys.
   # config.request_keys = []
 
   # Configure which authentication keys should be case-insensitive.
@@ -56,20 +60,21 @@ Devise.setup do |config|
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
-  # modifying a user and when used to authenticate or find a user. Default is :email.
+  # modifying a user and when used to authenticate or find a user. Default is
+  # :email.
   config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
-  # It can be set to an array that will enable params authentication only for the
-  # given strategies, for example, `config.params_authenticatable = [:database]` will
-  # enable it only for database (email + password) authentication.
+  # It can be set to an array that will enable params authentication only forthe
+  # given strategies, for example, `config.params_authenticatable = [:database]`
+  # will enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
-  # given strategies, for example, `config.http_authenticatable = [:database]` will
-  # enable it only for database authentication. The supported strategies are:
-  # :database      = Support basic authentication with authentication key + password
+  # given strategies, for example, `config.http_authenticatable = [:database]`
+  # will enable it only for database authentication.The supported strategiesare:
+  # :database = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
@@ -104,17 +109,20 @@ Devise.setup do |config|
 
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
-  # using other algorithms, it sets how many times you want the password to be hashed.
+  # using other algorithms, it sets how many times you want the password to be
+  # hashed.
   #
-  # Limiting the stretches to just one in testing will increase the performance of
-  # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
-  # a value less than 10 in other environments. Note that, for bcrypt (the default
-  # algorithm), the cost increases exponentially with the number of stretches (e.g.
-  # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
+  # Limiting the stretches to just one in testing will increase the performance
+  # of your test suite dramatically. However, it is STRONGLY RECOMMENDED to not
+  # use a value less than 10 in other environments. Note that, for bcrypt (the
+  # default algorithm), the cost increases exponentially with the number of
+  # stretches (e.g. a value of 20 is already extremely slow: approx. 60 seconds
+  # for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '49339f13831fb16e693511e1f58b44aad8be0f8b27653585530a029a124cfb2d03e747e0c93f1a58594d3c69da2f4d4cf0c0bc91e3c213ff51aff66b8900d155'
+  # config.pepper = '49339f13831fb16e693511e1f58b44aad8be0f8b27653585530a029a
+  # 124cfb2d03e747e0c93f1a58594d3c69da2f4d4cf0c0bc91e3c213ff51aff66b8900d155'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -142,9 +150,10 @@ Devise.setup do |config|
   # config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
-  # initial account confirmation) to be applied. Requires additional unconfirmed_email
-  # db field (see migrations). Until confirmed, new email is stored in
-  # unconfirmed_email column, and copied to email column on successful confirmation.
+  # initial account confirmation) to be applied. Requires additional
+  # unconfirmed_email db field (see migrations). Until confirmed, new email is
+  # stored in unconfirmed_email column, and copied to email column on successful
+  #  confirmation.
   config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
@@ -180,7 +189,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
-  # :failed_attempts = Locks an account after a number of failed attempts to sign in.
+  # :failed_attempts = Locks an account after a number of failed attempts to
+  # sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
   # config.lock_strategy = :failed_attempts
 
@@ -189,7 +199,8 @@ Devise.setup do |config|
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
-  # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
+  # :time  = Re-enables login after a certain amount of time
+  # (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
@@ -214,14 +225,16 @@ Devise.setup do |config|
   # change their passwords.
   config.reset_password_within = 6.hours
 
-  # When set to false, does not sign a user in automatically after their password is
+  # When set to false, does not sign a user in automatically after their
+  # password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
-  # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
+  # Allow you to use another hashing or encryption algorithm besides bcrypt
+  # (default).
   # You can use :sha1, :sha512 or algorithms from others authentication tools as
-  # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
+  # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to20
   # for default behavior) and :restful_authentication_sha1 (then you should set
   # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper).
   #
@@ -229,7 +242,7 @@ Devise.setup do |config|
   # config.encryptor = :sha512
 
   # ==> Scopes configuration
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
+  # Turn scoped views on.Before rendering "sessions/new",it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = false
@@ -263,7 +276,8 @@ Devise.setup do |config|
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
-  # change the failure app, you can configure them inside the config.warden block.
+  # change the failure app, you can configure them inside the config.warden
+  # block.
   #
   # config.warden do |manager|
   #   manager.intercept_401 = false
@@ -271,7 +285,7 @@ Devise.setup do |config|
   # end
 
   # ==> Mountable engine configurations
-  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
+  # When using Devise inside an engine,let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
   # The following options are available, assuming the engine is mounted as:
   #
@@ -285,7 +299,8 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # ==> Turbolinks configuration
-  # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
+  # If your app is using Turbolinks, Turbolinks::Controller
+  # needs to be included to make redirection work correctly:
   #
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
@@ -293,7 +308,9 @@ Devise.setup do |config|
 
   # ==> Configuration for :registerable
 
-  # When set to false, does not sign a user in automatically after their password is
-  # changed. Defaults to true, so a user is signed in automatically after changing a password.
+  # When set to false, does not sign a user in automatically after their
+  # password is
+  # changed. Defaults to true, so a user is signed in automatically after
+  # changing a password.
   # config.sign_in_after_change_password = true
 end

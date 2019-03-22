@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -9,7 +11,9 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 
 gem 'jquery-rails'
 
-gem 'letter_opener'
+gem 'rubocop'
+
+gem 'haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -27,7 +31,8 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# Turbolinks makes navigating your web application faster.
+# Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
@@ -46,81 +51,87 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger
+  #  console
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'execjs'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   # gem 'capybara-webkit','~>1.15.1'
-  gem 'selenium-webdriver'
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rails-controller-testing'
   gem 'rspec-activemodel-mocks', '= 1.0.1'
   gem 'rspec-collection_matchers'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '= 2.8.0'
-  gem 'rails-controller-testing'
 end
 
 group :test do
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'mongoid-rspec'
-  gem "factory_girl_rails", "~> 4.0"
   # gem "factory_bot_rails"
   gem 'database_cleaner'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere
+  # in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
 
   # open mail in the development mode
-  gem "letter_opener"
+  gem 'letter_opener'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 #  group :development, :test do
-#   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+# Call 'byebug' anywhere in the code to stop execution and get a debugger
+# console
 #   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 #   gem 'rspec-rails', '~> 3.4'
 #
 #   gem 'capybara', '>= 2.5'
 #
 #   gem 'factory_girl_rails', '~> 4.5.0'
-#   # Adds support for Capybara system testing and selenium driver
+#   Adds support for Capybara system testing and selenium driver
 # end
 #
 # group :development do
-#   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+# Access an interactive console on exception pages or by calling 'console'
+#  anywhere in the code.
 #   gem 'web-console', '>= 3.3.0'
 #   gem 'listen', '>= 3.0.5', '< 3.2'
-#   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+# Spring speeds up development by keeping your application running in the
+#  background. Read more: https://github.com/rails/spring
 #   gem 'spring'
 #   gem 'spring-watcher-listen', '~> 2.0.0'
 # end
 #
-# # group :test do
-# #   gem 'mongoid-rspec'
-# #   gem "factory_girl_rails", "~> 4.0"
-# #   gem 'database_cleaner'
-# # end
-# # group :development, :test do
-# #   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-# #   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-# #   gem 'execjs'
-# #   # Adds support for Capybara system testing and selenium driver
-# #   gem 'capybara', '~> 2.13'
-# #   gem 'capybara-webkit'
-# #   gem 'selenium-webdriver'
-# #   gem 'chromedriver-helper'
-# #   gem 'rspec-rails', '~> 3.6'
-# #   gem 'rspec-activemodel-mocks', '= 1.0.1'
-# #   gem 'rspec-collection_matchers'
-# #   gem 'shoulda-matchers', '= 2.8.0'
-# #   gem 'rails-controller-testing'
-# # end
+# group :test do
+# gem 'mongoid-rspec'
+#   gem "factory_girl_rails", "~> 4.0"
+#   gem 'database_cleaner'
+# end
+# group :development, :test do
+# Call 'byebug' anywhere in the code to stop execution and get a debuggerconsole
+#   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+#   gem 'execjs'
+#   Adds support for Capybara system testing and selenium driver
+#   gem 'capybara', '~> 2.13'
+#   gem 'capybara-webkit'
+#   gem 'selenium-webdriver'
+#   gem 'chromedriver-helper'
+#   gem 'rspec-rails', '~> 3.6'
+#   gem 'rspec-activemodel-mocks', '= 1.0.1'
+#   gem 'rspec-collection_matchers'
+#   gem 'shoulda-matchers', '= 2.8.0'
+#   gem 'rails-controller-testing'
+# end
 #
 # group :test do
 #   # Adds support for Capybara system testing and selenium driver
@@ -135,4 +146,4 @@ end
 # end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

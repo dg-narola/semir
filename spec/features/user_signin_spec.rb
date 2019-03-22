@@ -1,23 +1,24 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "User", type: :feature do
-
+RSpec.describe 'User', type: :feature do
   include UserModuleHelper
 
-  let(:user){create(:user)}
+  let(:user) { create(:user) }
 
-  describe "Sign up" do
+  describe 'Sign up' do
     before do
-      sign_up_user("test@example", "test_example", "password")
+      sign_up_user('test@example', 'test_example', 'password')
     end
 
-    it "successfully" do
+    it 'successfully' do
       sleep 1
       expect(current_path).to eq('/')
     end
   end
 
-  describe "Login" do
+  describe 'Login' do
     before do
       login_user(user.email, user.password)
       sleep 2
@@ -28,11 +29,11 @@ RSpec.describe "User", type: :feature do
       sleep 2
       new_seminar
       sleep 2
-      new_topic("title", "description", "dhafrsg")
+      new_topic('title', 'description', 'dhafrsg')
       sleep 2
       edit_seminar
       sleep 2
-      edit_topic("title", "descripton", "dharani")
+      edit_topic('title', 'descripton', 'dharani')
       sleep 2
       show_seminar
       sleep 2
@@ -43,7 +44,7 @@ RSpec.describe "User", type: :feature do
       delete_topic
     end
 
-    it "successfully" do
+    it 'successfully' do
       sleep 2
       # expect(current_path).to eq('/users')
       # expect(page).to have_css('h1', text: 'Seminartopics')
@@ -153,5 +154,4 @@ RSpec.describe "User", type: :feature do
   #     expect(current_path).to eq('/seminartopics')
   #   end
   # end
-
 end

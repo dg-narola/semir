@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# seminartopic fields
 class CreateSeminartopics < ActiveRecord::Migration[5.2]
   def change
     create_table :seminartopics do |t|

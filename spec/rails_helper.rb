@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails
+                                                                 .env
+                                                                 .production?
 
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'spec_helper'
@@ -16,10 +20,9 @@ require 'capybara/dsl'
 require 'selenium-webdriver'
 require 'shoulda/matchers'
 
+selenium_url = 'http://localhost:3002/wd/hub'
 
-selenium_url = "http://localhost:3002/wd/hub"
-
-#use :chrome instead of :selenium_remote
+# use :chrome instead of :selenium_remote
 Capybara.register_driver :selenium_remote do |app|
   options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
@@ -29,12 +32,12 @@ Capybara.register_driver :selenium_remote do |app|
   options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(app,
-      { url: selenium_url, browser: :chrome, options: options })
+                                 url: selenium_url, browser: :chrome,
+                                 options: options)
 end
 
-Capybara.server = :webrick #puma
+Capybara.server = :webrick # puma
 Capybara.javascript_driver = :selenium_remote #:chrome
-
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -51,9 +54,8 @@ Capybara.javascript_driver = :selenium_remote #:chrome
 #
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
-Dir[Rails.root.join("spec/shared/**/*.rb")].each { |f| require f }
-
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/shared/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -78,21 +80,21 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   # config.include OmniAuthTestHelper, type: :controller
 
-
   # This block configures Caypbara's driver to use Selenium
-    # It makes it use the chrome browser, but can also be configured to user Firefox, etc.
-    Capybara.register_driver :selenium do |app|
-         Capybara::Selenium::Driver.new(app, browser: :chrome)
-    end
-    # Uncomment to use capybara-webkit driver for headless testing
-    # Capybara.javascript_driver = :webkit
-    # Capybara.run_server = false
-    # Capybara.app_host = "https://my-website.mysite.com"
-    Capybara.configure do |config|
-        config.default_max_wait_time = 10 #seconds
-        config.default_driver = :selenium
-        # config.always_include_port = true
-    end
+  # It makes it use the chrome browser, but can also be configured to user
+  # Firefox, etc.
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  # Uncomment to use capybara-webkit driver for headless testing
+  # Capybara.javascript_driver = :webkit
+  # Capybara.run_server = false
+  # Capybara.app_host = "https://my-website.mysite.com"
+  Capybara.configure do |config|
+    config.default_max_wait_time = 10 # seconds
+    config.default_driver = :selenium
+    # config.always_include_port = true
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

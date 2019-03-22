@@ -20,12 +20,16 @@
         <td><%= User.find_by_id(seminartopic.user_id).try(:username) %></td>
         <td><%= seminartopic.try(:studname) %></td>
         <td><%= link_to 'Show', seminartopic, class: "btn btn-primary"  %></td>
-        <td><%= link_to 'Edit', edit_seminartopic_path(seminartopic), class: "btn btn-primary"  %></td>
-        <td><%= link_to 'Destroy', seminartopic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
+        <td><%= link_to 'Edit', edit_seminartopic_path(seminartopic),
+                class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Destroy', seminartopic, method: :delete, data:
+                { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <div class="pull-right">
-  <%= link_to 'New Seminartopic', new_seminartopic_path, class: "btn btn-success" %>
+  <%= link_to 'New Seminartopic', new_seminartopic_path,
+      class: "btn btn-success" %>
 </div>
