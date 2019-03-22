@@ -1,0 +1,18 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "semir",
+  "scripts": {
+    "postdeploy": "bundl exec heroku run rails db:migrate",
+    "test": "bundle exec rake rspec psec/features"
+  },
+  "stack": "heroku-18"
+}
