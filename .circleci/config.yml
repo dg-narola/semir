@@ -37,6 +37,11 @@ jobs:
             - rails-semir-yarn-{{ checksum "yarn.lock" }}
             - rails-semir-yarn-
       - run:
+          name: Update Chromedriver
+          command: |
+            sudo apt-get update
+            sudo apt-get install google-chrome-stable
+      - run:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
