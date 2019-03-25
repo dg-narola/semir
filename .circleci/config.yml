@@ -50,10 +50,10 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
       -run:
-           name: Update Chromedriver
-           command: |
-                        sudo apt-get update
-                        sudo apt-get install google-chrome-stable
+          name: Update Chromedriver
+          command: |
+            sudo apt-get update
+            sudo apt-get install google-chrome-stable
       - run:
           name: Run rspec in parallel
           command: |
