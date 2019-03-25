@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :seminartopics do
+  factory :seminartopic do
     title 'title'
     descripton 'seminar'
     studname 'dharani'
