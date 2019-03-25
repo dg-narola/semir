@@ -1,47 +1,175 @@
 version: 2
 jobs:
-  one:
+  build:
+    working_directory: ~/repo
+    parallelism: 3
     docker:
-      - image: circleci/ruby:2.5.1
-      - image: circleci/postgres:9.4.12
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: myapp-user
+          MYAPP_DATABASE_HOST_PATH: localhost
+          MYAPP_DATABASE_USERNAME: myapp-user
+          RAILS_ENV: test
+      - image: circleci/postgres:9.6-alpine
+        environment:
+          POSTGRES_USER: myapp-user
+          POSTGRES_DB: myapp_test
+          POSTGRES_PASSWORD: ""
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: mkdir -p my_workspace
-      - run: echo "Trying out workspaces" > my_workspace/echo-output
-      - persist_to_workspace:
-          # Must be an absolute path, or relative path from working_directory
-          root: my_workspace
-          # Must be relative path from root
-          paths:
-            - echo-output
-  two:
-    docker:
-      - image: circleci/ruby:2.5.1
-      - image: circleci/postgres:9.4.12
-    steps:
-      - checkout
-      - run: echo "A more familiar hi"
-      - run: bundle install   # install dependencies
-      - run: bundle exec rake db:create db:schema:load  # setup database
       - run:
-          name: Run tests
-          command: rake
-      - attach_workspace:
-          # Must be absolute path or relative path from working_directory
-          at: my_workspace
-
-      - run: |
-          if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
+          name: Which bundler?
+          command: bundle -v
+      - restore_cache:
+          keys:
+            - rails-myapp-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-myapp-bundle-v2-
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install --jobs=3 --retry=3 --path vendor/bundle
+      - save_cache:
+          key: rails-myapp-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - restore_cache:
+          keys:
+            - rails-myapp-yarn-{{ checksum "yarn.lock" }}
+            - rails-myapp-yarn-
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: rails-myapp-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bin/rails db:schema:load --trace
+      - run:
+          name: Run rspec in parallel
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out /tmp/test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/features/*_spec.rb" | circleci tests split --split-by=timings)
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Heroku CLI Install
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/$rspec-semir.git master
+      - run:
+          name: Heroku Migration
+          command: |
+            heroku run rails db:migrate -a $rspec-semir
+            sleep 5
+            heroku restart -a $rspec-semir
 workflows:
   version: 2
-  one_and_two:
+  build-deploy:
     jobs:
-      - one
-      - two:
+      - build
+      - deploy:
           requires:
-            - one
+            - build
+          filters:
+            branches:
+              only: master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: 2
+# jobs:
+#   one:
+#     docker:
+#       - image: circleci/ruby:2.5.1
+#       - image: circleci/postgres:9.4.12
+#     steps:
+#       - checkout
+#       - run: echo "A first hello"
+#       - run: mkdir -p my_workspace
+#       - run: echo "Trying out workspaces" > my_workspace/echo-output
+#       - persist_to_workspace:
+#           # Must be an absolute path, or relative path from working_directory
+#           root: my_workspace
+#           # Must be relative path from root
+#           paths:
+#             - echo-output
+#   two:
+#     docker:
+#       - image: circleci/ruby:2.5.1
+#       - image: circleci/postgres:9.4.12
+#     steps:
+#       - checkout
+#       - run: echo "A more familiar hi"
+#       - run: bundle install   # install dependencies
+#       - run: bundle exec rake db:create db:schema:load  # setup database
+#       - run:
+#           name: Run tests
+#           command: rake
+#       - attach_workspace:
+#           # Must be absolute path or relative path from working_directory
+#           at: my_workspace
+#
+#       - run: |
+#           if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
+#             echo "It worked!";
+#           else
+#             echo "Nope!"; exit 1
+#           fi
+# workflows:
+#   version: 2
+#   one_and_two:
+#     jobs:
+#       - one
+#       - two:
+#           requires:
+#             - one
