@@ -58,7 +58,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   # gem 'capybara-webkit','~>1.15.1'
-  gem 'chromedriver-helper'
+  gem 'chromedriver'
   gem 'rails-controller-testing'
   gem 'rspec-activemodel-mocks', '= 1.0.1'
   gem 'rspec-collection_matchers'
