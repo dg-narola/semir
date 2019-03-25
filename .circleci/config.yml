@@ -1,20 +1,20 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/semir
     parallelism: 3
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
           PGHOST: 127.0.0.1
-          PGUSER: myapp-user
+          PGUSER: semir
           MYAPP_DATABASE_HOST_PATH: localhost
-          MYAPP_DATABASE_USERNAME: myapp-user
+          MYAPP_DATABASE_USERNAME: semir
           RAILS_ENV: test
       - image: circleci/postgres:9.6-alpine
         environment:
-          POSTGRES_USER: myapp-user
-          POSTGRES_DB: myapp_test
+          POSTGRES_USER: semir
+          POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
     steps:
       - checkout
@@ -23,24 +23,24 @@ jobs:
           command: bundle -v
       - restore_cache:
           keys:
-            - rails-myapp-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-myapp-bundle-v2-
+            - rails-semir-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-semir-bundle-v2-
       - run:
           name: Bundle Install
           command: bundle check || bundle install --jobs=3 --retry=3 --path vendor/bundle
       - save_cache:
-          key: rails-myapp-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: rails-semir-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - restore_cache:
           keys:
-            - rails-myapp-yarn-{{ checksum "yarn.lock" }}
-            - rails-myapp-yarn-
+            - rails-semir-yarn-{{ checksum "yarn.lock" }}
+            - rails-semir-yarn-
       - run:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
-          key: rails-myapp-yarn-{{ checksum "yarn.lock" }}
+          key: rails-semir-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
       - run:
