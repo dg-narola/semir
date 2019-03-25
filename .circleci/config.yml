@@ -21,6 +21,11 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
+      - run:
+          name: Update Chromedriver
+          command: |
+            sudo apt-get update
+            sudo apt-get install google-chrome-stable
       - restore_cache:
           keys:
             - rails-semir-bundle-v2-{{ checksum "Gemfile.lock" }}
@@ -28,11 +33,6 @@ jobs:
       - run:
           name: Bundle Install
           command: bundle check || bundle install --jobs=3 --retry=3 --path vendor/bundle
-        - run:
-            name: Update Chromedriver
-            command: |
-              sudo apt-get update
-              sudo apt-get install google-chrome-stable
       - save_cache:
           key: rails-semir-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
