@@ -20,6 +20,11 @@ jobs:
     steps:
       - checkout
       - run: echo "A more familiar hi"
+      - run: bundle install --path vendor/bundle  # install dependencies
+      - run: bundle exec rake db:create db:schema:load  # setup database
+      - run:
+          name: Run tests
+          command: rake rspec spec/features
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
