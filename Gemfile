@@ -64,14 +64,13 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
-  gem 'factory_bot_rails'
-  gem 'rspec_junit_formatter'
   gem 'shoulda-matchers', '= 2.8.0'
+  gem 'rspec_junit_formatter'
 end
 
 group :test do
-  # gem 'factory_bot_rails'
-  # gem 'mongoid-rspec'
+  gem 'factory_girl_rails', '~> 4.0'
+  #gem 'mongoid-rspec'
   # gem "factory_bot_rails"
   gem 'database_cleaner'
 end
