@@ -70,7 +70,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_bot_rails'
+  # gem 'factory_bot_rails'
   # gem 'mongoid-rspec'
   # gem "factory_bot_rails"
   gem 'database_cleaner'
