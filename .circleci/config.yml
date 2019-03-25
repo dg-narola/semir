@@ -24,7 +24,7 @@ jobs:
       - run: bundle exec rake db:create db:schema:load  # setup database
       - run:
           name: Run tests
-          command: rake rspec spec/features
+          command: rake 
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
@@ -35,12 +35,6 @@ jobs:
           else
             echo "Nope!"; exit 1
           fi
-      - run:
-            name: Run rspec in parallel
-            command: |
-              bundle exec rspec spec/features\
-                                $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-
 workflows:
   version: 2
   one_and_two:
