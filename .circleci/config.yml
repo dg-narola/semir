@@ -75,7 +75,7 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-          # Xvfb -ac :99 -screen
+            Xvfb -ac -screen
             export DISPLAY=:99
             bundle exec rspec spec/features
       - store_test_results:
