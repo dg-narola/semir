@@ -79,12 +79,13 @@ jobs:
           name: Deploy Master to Heroku
           command: |
             git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
-      - run:
-          name: Heroku Migration
-          command: |
             heroku run rails db:migrate -a rspec-semir
-            sleep 5
-            heroku restart -a rspec-semir
+      # - run:
+      #     name: Heroku Migration
+      #     command: |
+      #       heroku run rails db:migrate -a rspec-semir
+      #       sleep 5
+      #       heroku restart -a rspec-semir
 workflows:
   version: 2
   build-deploy:
