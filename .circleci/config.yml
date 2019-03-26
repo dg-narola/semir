@@ -38,6 +38,19 @@ jobs:
             - rails-semir-yarn-{{ checksum "yarn.lock" }}
             - rails-semir-yarn-
       - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: rails-semir-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bin/rails db:schema:load --trace
+      - run:
           name: Update Chromedriver
           command: |
             wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -54,19 +67,6 @@ jobs:
           command: |
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
-      - run:
-          name: Yarn Install
-          command: yarn install --cache-folder ~/.cache/yarn
-      - save_cache:
-          key: rails-semir-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Database setup
-          command: bin/rails db:schema:load --trace
       - run:
           name: Run rspec in parallel
           command: |
