@@ -82,7 +82,8 @@ jobs:
       #      heroku run rails db:migrate -a rspec-semir
       - run:
           name: Heroku Migration
-          commands: -|
+          commands: |
+          -|
             cat >~/.netrc <<EOF
             machine api.heroku.com
               login $HEROKU_EMAIL
