@@ -95,10 +95,7 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-            machine git.heroku.com
-            login: dg@narola.email
-            password: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
-            heroku run rails db:migrate -a rspec-semir
+            heroku run rails db:migrate -a rspec-semir $RAILS_ENV = test
             sleep 5
             heroku restart -a rspec-semir
         #    heroku login
