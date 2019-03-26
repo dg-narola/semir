@@ -13,7 +13,7 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:9.6-alpine
         environment:
-          POSTGRES_USER: semir
+          POSTGRES_USER: ruby
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
       - image: selenium/standalone-chrome:3.1.0
