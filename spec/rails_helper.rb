@@ -32,7 +32,7 @@ Capybara.register_driver :selenium_remote do |app|
   options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(app,
-                                 url: selenium_url, browser: :chrome,
+                                 url: selenium_url, browser: chrome,
                                  options: options)
 end
 
