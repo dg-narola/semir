@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/semir
     parallelism: 3
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.1-browsers
         environment:
           PGHOST: 127.0.0.1
           PGUSER: semir
@@ -75,7 +75,7 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-           Xvfb -ac :99 -screen
+          # Xvfb -ac :99 -screen
             export DISPLAY=:99
             bundle exec rspec spec/features
       - store_test_results:
