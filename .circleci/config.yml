@@ -14,7 +14,7 @@ jobs:
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: semir
-          POSTGRES_DB: semir_test
+          POSTGRES_DB: semir_production
           POSTGRES_PASSWORD: ""
       - image: selenium/standalone-chrome:3.1.0
     steps:
@@ -104,4 +104,3 @@ workflows:
           filters:
             branches:
               only: master
-      
