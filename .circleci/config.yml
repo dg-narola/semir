@@ -17,6 +17,9 @@ jobs:
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
       - image: selenium/standalone-chrome:3.1.0
+        environment:
+          DISPLAY: 99
+          CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - run:
