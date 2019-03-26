@@ -71,10 +71,10 @@ jobs:
       - image: buildpack-deps:trusty
     steps:
       - checkout
-      # - run:
-      #     name: Heroku CLI Install
-      #     command: |
-      #       curl https://cli-assets.heroku.com/install.sh | sh
+      - run:
+          name: Heroku CLI Install
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
       - run:
           name: Deploy Master to Heroku
           command: |
