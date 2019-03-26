@@ -93,6 +93,7 @@ jobs:
           command: |
             git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
             git remote add heroku git@heroku.com:rspec-semir.git
+            yes
             git fetch heroku
       - run:
           name: Heroku Migration
