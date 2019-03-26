@@ -23,7 +23,7 @@ require 'shoulda/matchers'
 selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
-Capybara.register_driver :selenium_remote do |app|
+Capybara.register_driver :chrome do |app|
   options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
   options.add_argument('--headless')
@@ -32,12 +32,12 @@ Capybara.register_driver :selenium_remote do |app|
   options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(app,
-                                 url: selenium_url, browser: chrome,
+                                 url: selenium_url, browser: Chrome,
                                  options: options)
 end
 
 Capybara.server = :webrick # puma
-Capybara.javascript_driver = :selenium_remote #:chrome
+Capybara.javascript_driver = :chrome #:chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
