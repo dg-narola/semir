@@ -95,11 +95,11 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-            git remote add heroku git@heroku.com:rspec-semir.git
-            git fetch heroku
         #    heroku login
         #    login dg@narola.email
         #    password 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
+            git remote add heroku git@heroku.com:rspec-semir.git
+            git fetch heroku
             heroku run rails db:migrate -a rspec-semir
             sleep 5
             heroku restart -a rspec-semir
