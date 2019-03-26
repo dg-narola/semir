@@ -11,6 +11,7 @@ jobs:
           MYAPP_DATABASE_HOST_PATH: localhost
           MYAPP_DATABASE_USERNAME: semir
           RAILS_ENV: test
+          CHROME_BIN: /usr/bin/google-chrome
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: semir
@@ -95,9 +96,8 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
+
             heroku run rails db:migrate -a rspec-semir RAILS_ENV = production
-            email: dg@narola.email
-            password: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
             sleep 5
             heroku restart -a rspec-semir
         #    heroku login
