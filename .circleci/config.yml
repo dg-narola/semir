@@ -82,17 +82,17 @@ jobs:
       #      heroku run rails db:migrate -a rspec-semir
       - run:
           name: Heroku Migration
-          command: |
+          command: -|
             cat >~/.netrc <<EOF
             machine api.heroku.com
-            login $HEROKU_EMAIL
-            password $HEROKU_TOKEN
+              login $HEROKU_EMAIL
+              password $HEROKU_TOKEN
             machine git.heroku.com
-            login $HEROKU_EMAIL
-            password $HEROKU_TOKEN
+              login $HEROKU_EMAIL
+              password $HEROKU_TOKEN
             EOF
-            chmod 600 ~/.netrc
-           "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+          - chmod 600 ~/.netrc
+          - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
             heroku run rails db:migrate -a rspec-semir
             sleep 5
             heroku restart -a rspec-semir
