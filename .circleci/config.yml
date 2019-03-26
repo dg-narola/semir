@@ -84,7 +84,7 @@ jobs:
           command: |
             heroku run rails db:migrate -a $rspec-semir
             sleep 5
-            heroku restart -a $rspec-semir
+            heroku open -a $rspec-semir
 workflows:
   version: 2
   build-deploy:
