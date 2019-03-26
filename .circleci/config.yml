@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/semir
     parallelism: 3
     docker:
-      - image: circleci/ruby:2.5.1-browsers
+      - image: circleci/ruby:2.5.1-node-browsers
         environment:
           PGHOST: 127.0.0.1
           PGUSER: semir
@@ -18,6 +18,9 @@ jobs:
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
       - image: selenium/standalone-chrome:3.1.0
+        environment:
+          DISPLAY: 99
+          CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - run:
@@ -72,10 +75,9 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
+            Xvfb -ac -screen
+            export DISPLAY=:99
             bundle exec rspec spec/features
-          #  Xvfb -ac -screen
-          #  export DISPLAY=:99
-
       - store_test_results:
           path: tmp/test-results
       # - store_artifacts:
@@ -97,6 +99,7 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
+
             heroku run rails db:migrate -a rspec-semir RAILS_ENV = production
             sleep 5
             heroku restart -a rspec-semir
