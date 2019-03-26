@@ -36,6 +36,7 @@ jobs:
           keys:
             - rails-semir-yarn-{{ checksum "yarn.lock" }}
             - rails-semir-yarn-
+      - image: selenium/standalone-chrome:3.1.0        
       - run:
           name: Update Chromedriver
           command: |

@@ -37,7 +37,7 @@ Capybara.register_driver :selenium_remote do |app|
 end
 
 Capybara.server = :webrick # puma
-Capybara.javascript_driver = :chrome
+Capybara.javascript_driver = :selenium_remote #:chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
