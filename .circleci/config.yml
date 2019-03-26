@@ -61,9 +61,9 @@ jobs:
           command: |
             bundle exec rspec spec/features
       - store_test_results:
-          path: semir/tmp/test-results
+          path: tmp/test-results
       - store_artifacts:
-          path: semir/tmp/test-results
+          path: tmp/test-results
           destination: test-results
   deploy:
     docker:
