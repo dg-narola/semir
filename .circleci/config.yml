@@ -71,14 +71,14 @@ jobs:
       - image: buildpack-deps:trusty
     steps:
       - checkout
-      - run:
-          name: Heroku CLI Install
-          command: |
-            curl https://cli-assets.heroku.com/install.sh | sh
+      # - run:
+      #     name: Heroku CLI Install
+      #     command: |
+      #       curl https://cli-assets.heroku.com/install.sh | sh
       - run:
           name: Deploy Master to Heroku
           command: |
-            git push https://heroku:$8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/$rspec-semir.git master
+            git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
       - run:
           name: Heroku Migration
           command: |
