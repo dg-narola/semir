@@ -83,7 +83,6 @@ jobs:
       - run:
           name: Heroku Migration
           commands: |
-          - |
             cat >~/.netrc <<EOF
             machine api.heroku.com
               login $HEROKU_EMAIL
