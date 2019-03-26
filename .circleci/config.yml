@@ -82,6 +82,7 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
+            heroku login
             heroku run rails db:migrate -a $rspec-semir
             sleep 5
             heroku open -a $rspec-semir
