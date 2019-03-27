@@ -17,7 +17,7 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/dsl'
-require 'selenium-webdriver'
+require 'selenium/webdriver'
 require 'shoulda/matchers'
 
 selenium_url = 'http://localhost:3002/wd/hub'
