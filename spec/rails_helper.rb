@@ -15,15 +15,16 @@ require 'rspec/rails'
 require 'devise'
 require 'database_cleaner'
 require 'capybara'
+require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/dsl'
-require 'selenium-webdriver'
+require 'selenium/webdriver'
 require 'shoulda/matchers'
 
 selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
-Capybara.register_driver :selenium_remote do |app|
+Capybara.register_driver :selenium do |app|
   options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
   options.add_argument('--headless')
@@ -44,7 +45,7 @@ end
 # end
 
 Capybara.server = :webrick # puma
-Capybara.javascript_driver = :selenium_remote #:chrome
+Capybara.javascript_driver = :headless_chrome #:chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
