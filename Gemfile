@@ -57,7 +57,6 @@ group :development, :test do
   gem 'execjs'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'capybara-selenium'
   # gem 'capybara-webkit','~>1.15.1'
   gem 'chromedriver-helper'
   gem 'rails-controller-testing'
