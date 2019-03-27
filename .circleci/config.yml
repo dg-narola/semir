@@ -102,15 +102,15 @@ jobs:
           name: Heroku Migration
           command: |
             heroku run rails db:migrate -a rspec-semir
-            environment:
-              HEROKU_EMAIL: dg@narola.email
-              HEROKU_PASSWORD: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
             sleep 5
             heroku restart -a rspec-semir
         #    heroku login
         #    login dg@narola.email
         #    password 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
         #  git push git@heroku.com:semir.git $CIRCLE_SHA1:master
+        # environment:
+        #   HEROKU_EMAIL: dg@narola.email
+        #   HEROKU_PASSWORD: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
 
 workflows:
   version: 2
