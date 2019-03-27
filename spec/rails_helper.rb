@@ -23,21 +23,28 @@ require 'shoulda/matchers'
 selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
-Capybara.register_driver :selenium_chrome do |app|
-  options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
+# Capybara.register_driver :selenium_remote do |app|
+#   options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
+#
+#   options.add_argument('--headless')
+#   options.add_argument('--no-sandbox')
+#   options.add_argument('--disable-dev-shm-usage')
+#   options.add_argument('--window-size=1400,1400')
+#
+#   Capybara::Selenium::Driver.new(app,
+#                                  url: selenium_url, browser: :chrome,
+#                                  options: options)
+# end
 
-  options.add_argument('--headless')
-  options.add_argument('--no-sandbox')
-  options.add_argument('--disable-dev-shm-usage')
-  options.add_argument('--window-size=1400,1400')
-
-  Capybara::Selenium::Driver.new(app,
-                                 url: selenium_url, browser: :chrome,
-                                 options: options)
+Capybara.register_driver :selenium_headless do |app|
+Capybara::Selenium::Driver.load_selenium
+browser_options = ::Selenium::WebDriver::Firefox::Options.new
+browser_options.args << '-headless'
+Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
 end
 
 Capybara.server = :webrick # puma
-Capybara.javascript_driver = :selenium_chrome #:chrome
+Capybara.javascript_driver = :selenium_headless #:chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -84,8 +91,12 @@ RSpec.configure do |config|
   # It makes it use the chrome browser, but can also be configured to user
   # Firefox, etc.
   Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
+    Capybara::Selenium::Driver.new(app, browser: :firefox)
   end
+
+
+
+
   # Uncomment to use capybara-webkit driver for headless testing
   # Capybara.javascript_driver = :webkit
   # Capybara.run_server = false
