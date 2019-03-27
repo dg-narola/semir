@@ -17,10 +17,10 @@ jobs:
           POSTGRES_USER: semir
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
-      - image: selenium/standalone-chrome:3.1.0
-        environment:
-          DISPLAY: 99
-          CHROME_BIN: /usr/bin/google-chrome
+      # - image: selenium/standalone-chrome:3.1.0
+      #   environment:
+      #     DISPLAY: 99
+      #     CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - run:
@@ -61,17 +61,17 @@ jobs:
             sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
             sudo apt-get update
             sudo apt-get install google-chrome-stable
-      - run: mkdir test-reports
-      - run:
-          name: Download Selenium
-          command: |
-            curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run:
-          name: Start Selenium
-          command: |
-            java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-            Xvfb -ac :99 -screen
-          #background: true
+      # - run: mkdir test-reports
+      # - run:
+      #     name: Download Selenium
+      #     command: |
+      #       curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      # - run:
+      #     name: Start Selenium
+      #     command: |
+      #       java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+      #       Xvfb -ac :99 -screen
+      #     #background: true
       - run:
           name: Run rspec in parallel
           command: |
@@ -100,7 +100,9 @@ jobs:
             git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
       - run:
           name: Heroku Migration
-          command: |
+          commands:
+          - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+          - git push git@heroku.com:<appname> $CIRCLE_SHA1:refs/heads/master
             heroku run rails db:migrate -a rspec-semir
             sleep 5
             heroku restart -a rspec-semir
