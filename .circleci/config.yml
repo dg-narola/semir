@@ -101,9 +101,6 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-            git push git@heroku.com:rspec-semir $CIRCLE_SHA1:refs/heads/master
-            environment:
-              YES
             heroku run rails db:migrate -a rspec-semir
             sleep 5
             heroku restart -a rspec-semir
