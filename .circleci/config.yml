@@ -101,7 +101,6 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-            git push git@heroku.com:semir.git $CIRCLE_SHA1:master
             heroku run rails db:migrate -a rspec-semir RAILS_ENV = production
             environment:
               HEROKU_EMAIL: dg@narola.email
@@ -111,6 +110,7 @@ jobs:
         #    heroku login
         #    login dg@narola.email
         #    password 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
+        #  git push git@heroku.com:semir.git $CIRCLE_SHA1:master
 
 workflows:
   version: 2
