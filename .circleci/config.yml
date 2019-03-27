@@ -101,7 +101,7 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-            heroku auth:token
+            heroku login
             environment:
               HEROKU_EMAIL: dg@narola.email
               HEROKU_PASSWORD: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
