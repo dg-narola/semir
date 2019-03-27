@@ -75,8 +75,7 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-            export DISPLAY=:99
-            bundle exec rspec spec/features
+            rspec spec/features
       - store_test_results:
           path: tmp/test-results
       # - store_artifacts:
