@@ -100,9 +100,9 @@ jobs:
             git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
       - run:
           name: Heroku Migration
-          commands:
-          - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
-          - git push git@heroku.com:<appname> $CIRCLE_SHA1:refs/heads/master
+          command: |
+            "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+            git push git@heroku.com:rspec-semir $CIRCLE_SHA1:refs/heads/master
             heroku run rails db:migrate -a rspec-semir
             sleep 5
             heroku restart -a rspec-semir
