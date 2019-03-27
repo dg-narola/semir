@@ -54,24 +54,24 @@ jobs:
       - run:
           name: Database setup
           command: bin/rails db:schema:load --trace
-      - run:
-          name: Update Chromedriver
-          command: |
-            wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-            sudo apt-get update
-            sudo apt-get install google-chrome-stable
-      - run: mkdir test-reports
-      - run:
-          name: Download Selenium
-          command: |
-            curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run:
-          name: Start Selenium
-          command: |
-            java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-            Xvfb -ac :99 -screen
-          #background: true
+      # - run:
+      #     name: Update Chromedriver
+      #     command: |
+      #       wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      #       sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+      #       sudo apt-get update
+      #       sudo apt-get install google-chrome-stable
+      # - run: mkdir test-reports
+      # - run:
+      #     name: Download Selenium
+      #     command: |
+      #       curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      # - run:
+      #     name: Start Selenium
+      #     command: |
+      #       java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+      #       Xvfb -ac :99 -screen
+      #     #background: true
       - run:
           name: Run rspec in parallel
           command: |
@@ -85,6 +85,9 @@ jobs:
   deploy:
     docker:
       - image: buildpack-deps:trusty
+        environment:
+          EMAIL: dg@narola.email
+          PASSWORD: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
     steps:
       - checkout
       - run:
@@ -98,7 +101,6 @@ jobs:
       - run:
           name: Heroku Migration
           command: |
-
             heroku run rails db:migrate -a rspec-semir RAILS_ENV = production
             sleep 5
             heroku restart -a rspec-semir
