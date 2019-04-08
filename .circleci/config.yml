@@ -103,7 +103,7 @@ jobs:
             heroku run rails db:migrate -a rspec-semir
             sleep 5
             heroku restart -a rspec-semir
-            heroku open -a rspec-semir
+        #    heroku open -a rspec-semir
         #    heroku login
         #    login dg@narola.email
         #    password 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
