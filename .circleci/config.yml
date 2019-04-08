@@ -75,7 +75,6 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-          #  xdg-open http://www.google.com
             bundle exec rspec spec/features
       - store_test_results:
           path: tmp/test-results
@@ -105,7 +104,6 @@ jobs:
             sleep 5
             heroku restart -a rspec-semir
             heroku open -a rspec-semir
-        #  xdg-open http://www.google.com
         #    heroku login
         #    login dg@narola.email
         #    password 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
