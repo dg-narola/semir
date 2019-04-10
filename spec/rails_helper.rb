@@ -47,7 +47,7 @@ end
 # end
 
 Capybara.server = :puma # puma
-Capybara.javascript_driver = :selenium_headless #:chrome
+Capybara.javascript_driver = :headless_chrome #:chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -93,7 +93,7 @@ RSpec.configure do |config|
   # This block configures Caypbara's driver to use Selenium
   # It makes it use the chrome browser, but can also be configured to user
   # Firefox, etc.
-  Capybara.register_driver :selenium do |app|
+  Capybara.register_driver :headless_chrome do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
 
