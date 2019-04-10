@@ -23,7 +23,7 @@ require 'shoulda/matchers'
 selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
-Capybara.register_driver :headless_chrome' do |app|
+Capybara.register_driver :headless_chrome do |app|
   options = ::Selenium::WebDriver::Remote::Capabilites.chrome(chromeOptions: { args: %w(headless  no-sandbox disable-dev-shm-usage disable-gpu window-size=1024,768) }
   )
 
