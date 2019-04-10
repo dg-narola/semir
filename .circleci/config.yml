@@ -17,7 +17,7 @@ jobs:
           POSTGRES_USER: semir
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
-      # - image: selenium/standalone-chrome:3.1.0
+      - image: yukinying/chrome-headless-browser
       #   environment:
       #     DISPLAY: 99
       #     CHROME_BIN: /usr/bin/google-chrome
