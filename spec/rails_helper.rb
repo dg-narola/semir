@@ -24,7 +24,7 @@ selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
 Capybara.register_driver :selenium_remote do |app|
-  options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
+  options = ::Selenium::WebDriver::ChromeHeadless.driver_path::Options.new
 
   options.add_argument('--headless')
   options.add_argument('--no-sandbox')
@@ -32,7 +32,7 @@ Capybara.register_driver :selenium_remote do |app|
   options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(app,
-                                 url: selenium_url, browser: :chrome,
+                                 url: selenium_url, browser: :chromeheadless,
                                  options: options)
 end
 
@@ -91,7 +91,7 @@ RSpec.configure do |config|
   # It makes it use the chrome browser, but can also be configured to user
   # Firefox, etc.
   Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
+    Capybara::Selenium::Driver.new(app, browser: :chromeheadless)
   end
 
 
