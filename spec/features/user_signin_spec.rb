@@ -26,7 +26,7 @@ RSpec.describe "User", type: :feature do
       edit_profile
       sleep 2
       expect(page).to have_field('user_email')
-      update_profile_attributes(user, "12325", "12325")
+      update_profile_attributes(user)
       sleep 2
       update_profile(user)
       sleep 2
