@@ -3,7 +3,7 @@ module UserModuleHelper
   def login_user(username, password)
     p "=========lgr"
     visit '/users/sign_in'
-    sleep 4
+    sleep 2
     fill_in "user_login", with: username
     fill_in "user_password", with: password
     # find_element(:css, "button[type='submit']").click()
@@ -13,7 +13,7 @@ module UserModuleHelper
   def login_wrong(username, password)
     p "=========lgw"
     visit '/users/sign_in'
-    sleep 4
+    sleep 2
     fill_in "user_login", with: username
     fill_in "user_password", with: password
     # find_element(:css, "button[type='submit']").click()
@@ -23,7 +23,7 @@ module UserModuleHelper
   def sign_up_user(email, username, password)
     p "=========visit"
     visit '/users/sign_up'
-    sleep 4
+    sleep 2
     fill_in "user_email", with: email
     fill_in "user_username", with: username
     fill_in "user_password", with: password
@@ -34,7 +34,7 @@ module UserModuleHelper
   def edit_profile
     p "=========edit p"
     find("a", text: "Welcome").click()
-    sleep 4
+    sleep 2
     find("a", text: "Profile").click()
   end
 
@@ -51,7 +51,7 @@ module UserModuleHelper
     click_button 'Update'
   end
 
-  def update_profile(user, password = 123456, confirm_password = 123456)
+  def update_profile(user, password = 123256, confirm_password = 123256)
       p "=========update p"
     fill_in "user_email", with: user.email
     fill_in "user_username", with: user.username
@@ -74,7 +74,7 @@ module UserModuleHelper
 
   def new_seminar
     find("a", text: "Back").click()
-    sleep 4
+    sleep 2
     find("a", text: "New Seminartopic").click()
   end
 
@@ -82,7 +82,7 @@ module UserModuleHelper
     p "======new"
     visit '/seminartopics/new'
 
-    sleep 4
+    sleep 2
     fill_in "seminartopic_title", with: title
     fill_in "seminartopic_descripton", with: descripton
     fill_in "seminartopic_studname", with: studname
@@ -99,7 +99,7 @@ module UserModuleHelper
   def edit_topic(title, descripton, studname)
     p "======edit"
     visit '/seminartopics/1/edit'
-    sleep 4
+    sleep 2
     fill_in "seminartopic_title", with: title
     fill_in "seminartopic_descripton", with: descripton
     fill_in "seminartopic_studname", with: studname
@@ -110,7 +110,7 @@ module UserModuleHelper
 
   def show_seminar
     find("a", text: "Back").click()
-    sleep 4
+    sleep 2
     find("a", text: "Show").click()
   end
 
@@ -121,7 +121,7 @@ module UserModuleHelper
 
   def delete_seminar
     find("a", text: "Back").click()
-    sleep 4
+    sleep 2
     #find("a", text: "Destroy").click()
   end
 
@@ -133,7 +133,7 @@ module UserModuleHelper
 
   def click_delete
     find('a[data-method="delete"]').click
-    sleep 4
+    sleep 2
     page.driver.browser.switch_to.alert.accept
   end
 
