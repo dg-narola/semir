@@ -1,50 +1,53 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
-RSpec.describe 'User', type: :feature do
+RSpec.describe "User", type: :feature do
+
   include UserModuleHelper
 
-  let(:user) { create(:user) }
+  let(:user){create(:user)}
 
-  describe 'Sign up' do
+  describe "Sign up" do
     before do
-      sign_up_user('test@example', 'test_example', 'password')
+      sign_up_user("test@example", "test_example", "password")
     end
 
-    it 'successfully' do
-      sleep 1
+    it "successfully" do
+      sleep 4
       expect(current_path).to eq('/')
     end
   end
 
-  describe 'Login' do
+  describe "Login" do
     before do
+      login_wrong("dg@narola.email", "123456")
+      sleep 4
       login_user(user.email, user.password)
-      sleep 2
+      sleep 4
       edit_profile
-      sleep 2
+      sleep 4
       expect(page).to have_field('user_email')
-      update_profile_attributes(user)
-      sleep 2
+      update_profile_attributes(user, "12345", "12345")
+      sleep 4
+      update_profile(user)
+      sleep 4
       new_seminar
-      sleep 2
-      new_topic('title', 'description', 'dhafrsg')
-      sleep 2
+      sleep 4
+      new_topic("title", "description", "dhafrsg")
+      sleep 4
       edit_seminar
-      sleep 2
-      edit_topic('title', 'descripton', 'dharani')
-      sleep 2
+      sleep 4
+      edit_topic("title", "descripton", "dharani")
+      sleep 4
       show_seminar
-      sleep 2
+      sleep 4
       show_topic
-      sleep 2
+      sleep 4
       delete_seminar
-      sleep 2
+      sleep 4
       delete_topic
     end
 
-    it 'successfully' do
+    it "successfully" do
       sleep 2
       # expect(current_path).to eq('/users')
       # expect(page).to have_css('h1', text: 'Seminartopics')
@@ -154,4 +157,5 @@ RSpec.describe 'User', type: :feature do
   #     expect(current_path).to eq('/seminartopics')
   #   end
   # end
+
 end
