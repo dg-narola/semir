@@ -18,9 +18,9 @@ jobs:
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
       - image: yukinying/chrome-headless-browser
-        # environment:
-        #   DISPLAY: 99
-        #   CHROME_BIN: /usr/bin/google-chrome
+        environment:
+          DISPLAY: 99
+          CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - run:
