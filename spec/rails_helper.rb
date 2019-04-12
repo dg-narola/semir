@@ -17,26 +17,23 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/dsl'
-require 'selenium/webdriver'
+require 'selenium-webdriver'
 require 'shoulda/matchers'
 
 selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
-Capybara.register_driver :headless_chrome do |app|
-  options = ::Selenium::WebDriver::Remote::Capabilites.chrome(chromeOptions: { args: %w(headless  no-sandbox disable-dev-shm-usage disable-gpu window-size=1024,768) }
-  )
+Capybara.register_driver :selenium_remote do |app|
+  options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
-  # options.add_argument('--headless')
-  # options.add_argument('--no-sandbox')
-  # options.add_argument('--disable-dev-shm-usage')
-  # options.add_argument('--window-size=1400,1400')
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--window-size=1400,1400')
 
-#   Capybara::Selenium::Driver.new(app,
-#                                  url: selenium_url, browser: :chrome,
-#                                  options: options)
-# end
-  Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+  Capybara::Selenium::Driver.new(app,
+                                 url: selenium_url, browser: :chrome,
+                                 options: options)
 end
 
 # Capybara.register_driver :selenium_headless do |app|
@@ -46,8 +43,8 @@ end
 # Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
 # end
 
-Capybara.server = :puma # puma
-Capybara.javascript_driver = :headless_chrome #:chrome
+Capybara.server = :webrick # puma
+Capybara.javascript_driver = :selenium_remote #:chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -93,7 +90,7 @@ RSpec.configure do |config|
   # This block configures Caypbara's driver to use Selenium
   # It makes it use the chrome browser, but can also be configured to user
   # Firefox, etc.
-  Capybara.register_driver :headless_chrome do |app|
+  Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
 
