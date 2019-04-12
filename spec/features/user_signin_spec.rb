@@ -12,38 +12,38 @@ RSpec.describe "User", type: :feature do
     end
 
     it "successfully" do
-      sleep
+      sleep 4
       expect(current_path).to eq('/')
     end
   end
 
   describe "Login" do
     before do
-      login_wrong("dg@narola.email", "123256")
-      sleep 2
+      login_wrong("dg@narola.email", "123456")
+      sleep 4
       login_user(user.email, user.password)
-      sleep 2
+      sleep 4
       edit_profile
-      sleep 2
+      sleep 4
       expect(page).to have_field('user_email')
       update_profile_attributes(user)
-      sleep 2
+      sleep 4
       update_profile(user)
-      sleep 2
+      sleep 4
       new_seminar
-      sleep 2
+      sleep 4
       new_topic("title", "description", "dhafrsg")
-      sleep 2
+      sleep 4
       edit_seminar
-      sleep 2
+      sleep 4
       edit_topic("title", "descripton", "dharani")
-      sleep 2
+      sleep 4
       show_seminar
-      sleep 2
+      sleep 4
       show_topic
-      sleep 2
+      sleep 4
       delete_seminar
-      sleep 2
+      sleep 4
       delete_topic
     end
 
