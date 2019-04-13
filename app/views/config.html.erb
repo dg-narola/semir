@@ -17,6 +17,10 @@ jobs:
           POSTGRES_USER: semir
           POSTGRES_DB: semir_test
           POSTGRES_PASSWORD: ""
+      # - image: selenium/standalone-chrome:3.1.0
+      #   environment:
+      #     DISPLAY: 99
+      #     CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - run:
@@ -57,12 +61,52 @@ jobs:
               sudo dpkg -i google-chrome.deb
               sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
               rm google-chrome.deb
+      # - run:
+      #     name: Install Chrome
+      #     command: |
+      #       wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      #       sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+      #       sudo apt-get update
+      #       sudo apt-get install google-chrome-stable
+      # - run:
+      #     name: Install Chrome
+      #     command: |
+      #       wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+      #       sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+      #       sudo apt-get update
+      #       sudo apt-get install google-chrome-stable
+      # - run: mkdir test-reports
+      # - run:
+      #     name: Download Selenium
+      #     command: |
+      #       curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      # - run:
+      #     name: Start Selenium
+      #     command: |
+      #       java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+      #       Xvfb -ac :99 -screen
+      #     #background: true
       - run:
           name: Run rspec in parallel
           command: |
             bundle exec rspec spec/features
       - store_test_results:
           path: tmp/test-results
+      # - store_artifacts:
+      #     path: tmp/test-results
+      #     destination: test-results
+  # deploy:
+    # docker:
+    #   - image: buildpack-deps:trusty
+    #     environment:
+    #       EMAIL: dg@narola.email
+    #       PASSWORD: cab538f9-5a5a-4b48-be70-6ff34f893793
+    # steps:
+    #   - checkout
+    #   - run:
+    #       name: Heroku CLI Install
+    #       command: |
+    #         curl https://cli-assets.heroku.com/install.sh | sh
   deploy:
     working_directory: ~/semir
     machine:
@@ -85,9 +129,17 @@ jobs:
             chmod 600 ~/.netrc # Heroku cli complains about permissions without this
             git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
             heroku run rails db:migrate -a rspec-semir
-            sleep 5
-            heroku restart -a rspec-semir
-            heroku open -a rspec-semir
+        # sleep 5
+        # heroku restart -a rspec-semir
+        # heroku open -a rspec-semir
+        #    heroku login
+        #    login dg@narola.email
+        #    password cab538f9-5a5a-4b48-be70-6ff34f893793
+        #  git push git@heroku.com:semir.git $CIRCLE_SHA1:master
+        # environment:
+        #   HEROKU_EMAIL: dg@narola.email
+        #   HEROKU_PASSWORD: 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
+
 workflows:
   version: 2
   build-deploy:
