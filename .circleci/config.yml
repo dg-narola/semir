@@ -109,8 +109,8 @@ jobs:
     #         curl https://cli-assets.heroku.com/install.sh | sh
     deploy:
     machine:
-        enabled: true
-        working_directory: ~/semir
+      enabled: true
+      working_directory: ~/semir
     environment:
       HEROKU_APP: "rspec-semir"
     steps:
