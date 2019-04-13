@@ -110,7 +110,7 @@ jobs:
     deploy:
     machine:
         enabled: true
-    working_directory: ~/semir
+        working_directory: ~/semir
     environment:
       HEROKU_APP: "rspec-semir"
     steps:
