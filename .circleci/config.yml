@@ -86,9 +86,6 @@ jobs:
             git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
             heroku run rails db:migrate -a rspec-semir
             heroku restart -a rspec-semir
-            machine api.heroku.com
-            EMAIL $HEROKU_EMAIL
-            PASSWORD $HEROKU_TOKEN
             heroku open -a rspec-semir
 workflows:
   version: 2
