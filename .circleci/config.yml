@@ -116,11 +116,12 @@ jobs:
           command: |
             heroku run rails db:migrate -a rspec-semir
             sleep 5
+            cat ~/.netrc
             heroku restart -a rspec-semir
         #    heroku open -a rspec-semir
         #    heroku login
         #    login dg@narola.email
-        #    password 8ae67c8c-57dd-490b-86d8-4abc8e708bd4
+        #    password cab538f9-5a5a-4b48-be70-6ff34f893793
         #  git push git@heroku.com:semir.git $CIRCLE_SHA1:master
         # environment:
         #   HEROKU_EMAIL: dg@narola.email
