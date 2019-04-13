@@ -90,11 +90,11 @@ jobs:
           command: |
             cat >~/.netrc <<EOF
             machine api.heroku.com
-            login $HEROKU_EMAIL
-            password $HEROKU_TOKEN
+            Email $HEROKU_EMAIL
+            Password $HEROKU_TOKEN
             machine git.heroku.com
-            login $HEROKU_EMAIL
-            password $HEROKU_TOKEN
+            Email $HEROKU_EMAIL
+            Password $HEROKU_TOKEN
             EOF
             chmod 600 ~/.netrc # Heroku cli complains about permissions without this
             heroku restart -a rspec-semir
