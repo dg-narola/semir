@@ -107,10 +107,10 @@ jobs:
     #       name: Heroku CLI Install
     #       command: |
     #         curl https://cli-assets.heroku.com/install.sh | sh
-    deploy:
+  deploy:
+    working_directory: ~/semir
     machine:
       enabled: true
-      working_directory: ~/semir
     environment:
       HEROKU_APP: "rspec-semir"
     steps:
