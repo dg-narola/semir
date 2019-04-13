@@ -90,6 +90,20 @@ jobs:
             Email $HEROKU_EMAIL
             Password $HEROKU_TOKEN
             heroku open -a rspec-semir
+        - run:
+            name: Deploy Master to Heroku
+            command: |
+              cat >~/.netrc <<EOF
+              machine api.heroku.com
+              login $HEROKU_EMAIL
+              password $HEROKU_TOKEN
+              machine git.heroku.com
+              login $HEROKU_EMAIL
+              password $HEROKU_TOKEN
+              EOF
+              chmod 600 ~/.netrc # Heroku cli complains about permissions without this
+              heroku restart -a rspec-semir
+              heroku open -a rspec-semir
 workflows:
   version: 2
   build-deploy:
