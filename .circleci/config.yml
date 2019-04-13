@@ -103,10 +103,10 @@ jobs:
           PASSWORD: cab538f9-5a5a-4b48-be70-6ff34f893793
     steps:
       - checkout
-      # - run:
-      #     name: Heroku CLI Install
-      #     command: |
-      #       curl https://cli-assets.heroku.com/install.sh | sh
+      - run:
+          name: Heroku CLI Install
+          command: |
+            curl https://cli-assets.heroku.com/install.sh | sh
       - run:
           name: Heroku Migration
           command: |
