@@ -43,8 +43,11 @@ end
 # Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
 # end
 
-Capybara.server = :webrick # puma
-Capybara.javascript_driver = :selenium_remote #:chrome
+Capybara.javascript_driver = :webkit
+Capybara.run_server = false
+Capybara.app_host = "https://rspec-semir.heokuapp.com"
+#Capybara.server = :webrick # puma
+#Capybara.javascript_driver = :selenium_remote #:chrome
 # Capybara.server_port = 5001 # We don't want it to collide with standard rails server on port 5000
 # Capybara.server_host = "0.0.0.0" # Start server on localhost as meta-address
 # Capybara.server = :puma, { Silent: true } # Supress puma STDOUT in console
@@ -101,9 +104,9 @@ RSpec.configure do |config|
 
 
   # Uncomment to use capybara-webkit driver for headless testing
-  Capybara.javascript_driver = :webkit
-  Capybara.run_server = false
-  Capybara.app_host = "https://my-website.mysite.com"
+  # Capybara.javascript_driver = :webkit
+  # Capybara.run_server = false
+  # Capybara.app_host = "https://my-website.mysite.com"
 
   Capybara.configure do |config|
     config.default_max_wait_time = 10 # seconds
