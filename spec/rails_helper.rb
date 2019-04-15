@@ -26,10 +26,10 @@ selenium_url = 'http://localhost:3002/wd/hub'
 Capybara.register_driver :selenium_remote do |app|
   options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
-  options.add_argument('--headless')
-  options.add_argument('--no-sandbox')
-  options.add_argument('--disable-dev-shm-usage')
-  options.add_argument('--window-size=1400,1400')
+  options.add_argument 'headless'
+  options.add_argument 'no-sandbox'
+  options.add_argument 'disable-dev-shm-usage'
+  options.add_argument 'window-size=1400,1400'
 
   Capybara::Selenium::Driver.new(app,
                                  url: selenium_url, browser: :chrome,
@@ -101,9 +101,10 @@ RSpec.configure do |config|
 
 
   # Uncomment to use capybara-webkit driver for headless testing
-  # Capybara.javascript_driver = :webkit
-  # Capybara.run_server = false
-  # Capybara.app_host = "https://my-website.mysite.com"
+  Capybara.javascript_driver = :webkit
+  Capybara.run_server = false
+  Capybara.app_host = "https://my-website.mysite.com"
+
   Capybara.configure do |config|
     config.default_max_wait_time = 10 # seconds
     config.default_driver = :selenium
