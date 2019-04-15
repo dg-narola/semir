@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+puts "#{page.html.inspect}"
 RSpec.describe "User", type: :feature do
 
   include UserModuleHelper
