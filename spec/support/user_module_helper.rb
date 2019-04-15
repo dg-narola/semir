@@ -110,6 +110,7 @@ module UserModuleHelper
   end
 
   def show_seminar
+    p "======show"
     find("a", text: "Back").click()
     sleep 4
     find("a", text: "Show").click()
