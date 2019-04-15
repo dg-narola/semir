@@ -23,13 +23,13 @@ require 'shoulda/matchers'
 selenium_url = 'http://localhost:3002/wd/hub'
 
 # use :chrome instead of :selenium_remote
-Capybara.register_driver :selenium_remote do |app|
+Capybara.register_driver :chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
-  options.add_argument 'headless'
-  options.add_argument 'no-sandbox'
-  options.add_argument 'disable-dev-shm-usage'
-  options.add_argument 'window-size=1400,1400'
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(app,
                                  url: selenium_url, browser: :chrome,
@@ -44,7 +44,7 @@ end
 # end
 
 Capybara.server = :webrick # puma
-Capybara.javascript_driver = :selenium_remote #:chrome
+Capybara.javascript_driver = :chrome_headless #:chrome
 # Capybara.server_port = 5001 # We don't want it to collide with standard rails server on port 5000
 # Capybara.server_host = "0.0.0.0" # Start server on localhost as meta-address
 # Capybara.server = :puma, { Silent: true } # Supress puma STDOUT in console
