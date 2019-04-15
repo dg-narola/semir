@@ -1,6 +1,5 @@
 module UserModuleHelper
 
-  puts "#{page.html.inspect}"
   def login_user(username, password)
     p "=========lgr"
     visit '/users/sign_in'
