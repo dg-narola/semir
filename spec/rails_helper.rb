@@ -43,7 +43,6 @@ end
 # Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)
 # end
 
-Capybara.app_host = "http://localhost:3000"
 Capybara.server = :webrick # puma
 Capybara.javascript_driver = :selenium_remote #:chrome
 Capybara.server_port = 5001 # We don't want it to collide with standard rails server on port 5000
