@@ -46,8 +46,8 @@ end
 Capybara.javascript_driver = :webkit
 Capybara.run_server = false
 Capybara.app_host = "https://rspec-semir.heokuapp.com"
-#Capybara.server = :webrick # puma
-#Capybara.javascript_driver = :selenium_remote #:chrome
+Capybara.server = :webrick # puma
+Capybara.javascript_driver = :selenium_remote #:chrome
 # Capybara.server_port = 5001 # We don't want it to collide with standard rails server on port 5000
 # Capybara.server_host = "0.0.0.0" # Start server on localhost as meta-address
 # Capybara.server = :puma, { Silent: true } # Supress puma STDOUT in console
