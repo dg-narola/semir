@@ -17,7 +17,7 @@ require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/dsl'
-require 'selenium-webdriver'
+require 'selenium/webdriver'
 require 'shoulda/matchers'
 
 selenium_url = 'http://localhost:3002/wd/hub'
@@ -44,7 +44,7 @@ end
 # end
 
 Capybara.app_host = "http://localhost:3000"
-Capybara.server = :puma # puma
+Capybara.server = :webrick # puma
 Capybara.javascript_driver = :selenium_remote #:chrome
 Capybara.server_port = 5001 # We don't want it to collide with standard rails server on port 5000
 Capybara.server_host = "0.0.0.0" # Start server on localhost as meta-address
