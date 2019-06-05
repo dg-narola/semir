@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 FactoryGirl.define do
-  factory :seminartopics do
-    title 'title'
-    descripton 'seminar'
-    studname 'dharani'
-
-    association :user
+  factory :seminartopic do
+    title "title"
+    descripton "seminar"
+    studname "dharani"
+    association :user,factory: :user
   end
 end
