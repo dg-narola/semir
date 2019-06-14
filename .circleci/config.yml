@@ -60,107 +60,44 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-            bundle exec rspec spec/features
-            version: 2
-            jobs:
-              build:
-                working_directory: ~/semir
-                parallelism: 3
-                docker:
-                  - image: circleci/ruby:2.5.1-node-browsers
-                    environment:
-                      PGHOST: 127.0.0.1
-                      PGUSER: semir
-                      MYAPP_DATABASE_HOST_PATH: localhost
-                      MYAPP_DATABASE_USERNAME: semir
-                      RAILS_ENV: test
-                      CHROME_BIN: /usr/bin/google-chrome
-                  - image: circleci/postgres:9.6-alpine
-                    environment:
-                      POSTGRES_USER: semir
-                      POSTGRES_DB: semir_test
-                      POSTGRES_PASSWORD: ""
-                steps:
-                  - checkout
-                  - run:
-                      name: Which bundler?
-                      command: bundle -v
-                  - restore_cache:
-                      keys:
-                        - rails-semir-bundle-v2-{{ checksum "Gemfile.lock" }}
-                        - rails-semir-bundle-v2-
-                  - run:
-                      name: Bundle Install
-                      command: bundle check || bundle install --jobs=3 --retry=3 --path vendor/bundle
-                  - save_cache:
-                      key: rails-semir-bundle-v2-{{ checksum "Gemfile.lock" }}
-                      paths:
-                        - vendor/bundle
-                  - restore_cache:
-                      keys:
-                        - rails-semir-yarn-{{ checksum "yarn.lock" }}
-                        - rails-semir-yarn-
-                  - run:
-                      name: Yarn Install
-                      command: yarn install --cache-folder ~/.cache/yarn
-                  - save_cache:
-                      key: rails-semir-yarn-{{ checksum "yarn.lock" }}
-                      paths:
-                        - ~/.cache/yarn
-                  - run:
-                      name: Wait for DB
-                      command: dockerize -wait tcp://localhost:5432 -timeout 1m
-                  - run:
-                      name: Database setup
-                      command: bin/rails db:schema:load --trace
-                  - run:
-                      name: Install Chrome
-                      command: |
-                          curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-                          sudo dpkg -i google-chrome.deb
-                          sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-                          rm google-chrome.deb
-                  - run:
-                      name: Run rspec in parallel
-                      command: |
-                        bundle exec rspec spec/features
-                        bundle exec rspec spec/models
-                        bundle exec rspec spec/controllers
-                  - store_test_results:
-                      path: tmp/test-results
-              deploy:
-                working_directory: ~/semir
-                machine:
-                  enabled: true
-                environment:
-                  HEROKU_APP: "rspec-semir"
-                steps:
-                  - checkout
-                  - run:
-                      name: Deploy Master to Heroku
-                      command: |
-                        cat >~/.netrc <<EOF
-                        machine api.heroku.com
-                        login $HEROKU_EMAIL
-                        password $HEROKU_TOKEN
-                        machine git.heroku.com
-                        login $HEROKU_EMAIL
-                        password $HEROKU_TOKEN
-                        EOF
-                        chmod 600 ~/.netrc # Heroku cli complains about permissions without this
-                        git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
-                        heroku run rails db:migrate -a rspec-semir
-            workflows:
-              version: 2
-              build-deploy:
-                jobs:
-                  - build
-                  - deploy:
-                      requires:
-                        - build
-                      filters:
-                        branches:
-                          only: master
+                bundle exec rspec spec/features
+                bundle exec rspec spec/models
+                bundle exec rspec spec/controllers
+      - store_test_results:
+          path: tmp/test-results
+  deploy:
+    working_directory: ~/semir
+    machine:
+      enabled: true
+    environment:
+      HEROKU_APP: "rspec-semir"
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            cat >~/.netrc <<EOF
+            machine api.heroku.com
+            login $HEROKU_EMAIL
+            password $HEROKU_TOKEN
+            machine git.heroku.com
+            login $HEROKU_EMAIL
+            password $HEROKU_TOKEN
+            EOF
+            chmod 600 ~/.netrc # Heroku cli complains about permissions without this
+            git push https://heroku:8ae67c8c-57dd-490b-86d8-4abc8e708bd4@git.heroku.com/rspec-semir.git master
+            heroku run rails db:migrate -a rspec-semir
+  workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
 
       - store_test_results:
           path: tmp/test-results
